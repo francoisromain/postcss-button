@@ -6,7 +6,6 @@ const tests = {
 .my-button-2 {
   button-color: red pink blue green;
   button-border: 2px black red;
-  button-radius: 10px;
 }
 `,
   output: `.my-button, .my-button:visited {
@@ -20,9 +19,8 @@ const tests = {
 }
 
 .my-button:active, .my-button:hover, .my-button.active {
-  color: black;
-  background-color: silver;
-  box-shadow: inset 0 0 0 0 black;
+  color: white;
+  background-color: grey;
 }
 
 .my-button:disabled, .my-button:disabled:active, .my-button:disabled:hover, .my-button.disabled, .my-button.disabled:active, .my-button.disabled:hover {
@@ -39,7 +37,6 @@ const tests = {
   color: red;
   background-color: pink;
   box-shadow: inset 0 0 0 2px black;
-  border-radius: 10px;
 }
 
 .my-button-2:active, .my-button-2:hover, .my-button-2.active {

@@ -6,12 +6,11 @@ module.exports = postcss.plugin('postcss-button', (opts) => {
     default: {
       color: 'grey',
       backgroundColor: 'white',
-      colorActive: 'black',
-      backgroundColorActive: 'silver',
-      borderWidth: 0,
+      colorActive: 'white',
+      backgroundColorActive: 'grey',
+      borderWidth: '0',
       borderColor: 'grey',
-      borderColorActive: 'black',
-      borderRadius: 0,
+      borderColorActive: 'grey',
       classActive: 'active',
       classDisabled: 'disabled',
     },
@@ -52,12 +51,12 @@ module.exports = postcss.plugin('postcss-button', (opts) => {
 
         node.remove();
       } else if (node.type === 'decl' && node.prop.match(/^button/)) {
-        options.tmp = options.tmp ? options.tmp : options.default;
+        options.tmp = options.tmp ? options.tmp : Object.assign({}, options.default);
 
         if (node.prop.match(/^button$/)) {
           Object.assign(options.tmp, options[node.value]);
         } else if (node.prop.match(/^button-color$/)) {
-          const value = node.value.split(' ');
+          const value = node.value.split(/\s+(?![^\[]*\]|[^(]*\)|[^\{]*})/);
 
           options.tmp.color = value[0];
 
@@ -72,10 +71,8 @@ module.exports = postcss.plugin('postcss-button', (opts) => {
           if (value[3]) {
             options.tmp.backgroundColorActive = value[3];
           }
-        } else if (node.prop.match(/^button-radius$/)) {
-          options.tmp.borderRadius = node.value;
         } else if (node.prop.match(/^button-border$/)) {
-          const value = node.value.split(' ');
+          const value = node.value.split(/\s+(?![^\[]*\]|[^(]*\)|[^\{]*})/);
 
           options.tmp.borderWidth = value[0];
 
@@ -87,7 +84,7 @@ module.exports = postcss.plugin('postcss-button', (opts) => {
             options.tmp.borderColorActive = value[2];
           }
         } else if (node.prop.match(/^button-class$/)) {
-          const value = node.value.split(' ');
+          const value = node.value.split(/\s+(?![^\[]*\]|[^(]*\)|[^\{]*})/);
           options.tmp.classActive = value[0];
 
           if (value[1]) {

@@ -32,16 +32,15 @@ The default settings can be overrided with an atrule:
 
 ``` css
 
-@button {
+@button [name] {
   color: grey;
   background-color: white;
-  color-active: black;
-  background-color-active: silver;
+  color-active: white;
+  background-color-active: grey;
   border-width: 0;
   border-style: none;
   border-color: grey;
   border-color-active: black;
-  border-radius: 0;
   class-active: active;
   class-disabled: disabled;
 }
@@ -62,17 +61,18 @@ There are two ways of declaring a button:
 @button [name] {
   color: grey;
   background-color: white;
-  color-active: black;
-  background-color-active: silver;
+  color-active: white;
+  background-color-active: grey;
   border-width: 0;
   border-style: none;
   border-color: grey;
-  border-color-active: black;
-  border-radius: 0;
+  border-color-active: grey;
   class-active: active;
   class-disabled: disabled;
 }
+```
 
+```css
 .my-button {
   button: [name]
 }
@@ -85,13 +85,14 @@ There are two ways of declaring a button:
 ``` css 
 .my-button {
   button-color: [color] [background-color] [color-active] [background-color-active];
-  button-border: [width] [style] [color] [color-active];
-  button-radius: [size];
+  button-border: [width] [border-color] [border-color-active];
   button-classes: [active] [disabled];
 }
 ```
 
 Missing declarations will use the _default_ settings. 
 
-Example: [input](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/src/00.css), [output](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/dist/00.css), [markup](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/00.html), [demo](http://localhost/francoisromain.github.io/postcss-button/test/00.html)
+Example: [input](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/src/01.css), [output](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/dist/01.css), [markup](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/01.html), [demo](http://localhost/francoisromain.github.io/postcss-button/test/01.html)
+
+Example: [input](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/src/02.css), [output](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/dist/02.css), [markup](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/02.html), [demo](http://localhost/francoisromain.github.io/postcss-button/test/02.html)
 

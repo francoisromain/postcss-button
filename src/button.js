@@ -76,7 +76,7 @@ export default (rule, options) => {
   // default rule
   let declNew = [
     postcss.decl({ prop: 'display', value: 'inline-block' }),
-    postcss.decl({ prop: 'margin', value: 0 }),
+    postcss.decl({ prop: 'margin', value: '0' }),
     postcss.decl({ prop: 'cursor', value: 'pointer' }),
     postcss.decl({ prop: 'text-decoration', value: 'none' }),
     postcss.decl({ prop: 'border', value: 'none' }),
@@ -100,12 +100,6 @@ export default (rule, options) => {
         prop: 'box-shadow',
         value: `inset 0 0 0 ${options.borderWidth} ${options.borderColor}`,
       }),
-    ]);
-  }
-
-  if (options.borderRadius && options.borderRadius !== '0') {
-    declNew = declNew.concat([
-      postcss.decl({ prop: 'border-radius', value: options.borderRadius }),
     ]);
   }
 
