@@ -2,7 +2,7 @@
 
 [francoisromain.github.io/postcss-button](http://francoisromain.github.io/postcss-button)
 
-A [PostCSS] plugin to create grids based on a fixed column width.
+A [PostCSS] plugin to create buttons.
 
 [PostCSS]: https://github.com/postcss/postcss
 [ci-img]:  https://travis-ci.org/francoisromain/postcss-button.svg
@@ -28,7 +28,7 @@ See [PostCSS docs](https://github.com/postcss/postcss#usage) to setup with Gulp,
 
 ## Configuration (optional)
 
-Global settings rule (and default values):
+The default settings can be overrided with an atrule:
 
 ``` css
 
@@ -41,7 +41,9 @@ Global settings rule (and default values):
   border-style: none;
   border-color: grey;
   border-color-active: black;
-  radius: 0;
+  border-radius: 0;
+  class-active: active;
+  class-disabled: disabled;
 }
 ```
 
@@ -66,13 +68,17 @@ There are two ways of declaring a button:
   border-style: none;
   border-color: grey;
   border-color-active: black;
-  radius: 0;
+  border-radius: 0;
+  class-active: active;
+  class-disabled: disabled;
 }
 
 .my-button {
   button: [name]
 }
 ```
+
+- _name_: custom identifier
 
 ### With specific declarations
 
@@ -81,8 +87,11 @@ There are two ways of declaring a button:
   button-color: [color] [background-color] [color-active] [background-color-active];
   button-border: [width] [style] [color] [color-active];
   button-radius: [size];
+  button-classes: [active] [disabled];
 }
 ```
+
+Missing declarations will use the _default_ settings. 
 
 Example: [input](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/src/00.css), [output](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/dist/00.css), [markup](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/00.html), [demo](http://localhost/francoisromain.github.io/postcss-button/test/00.html)
 

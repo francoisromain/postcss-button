@@ -1,68 +1,123 @@
 const tests = {
-  input: `@gs {}
-
-.container {
-  gs: container;
+  input: `button,
+.my-button {
+  button: test;
 }
 
-.row {
-  gs: row;
+.my-button-2 {
+  button-color: red pink blue green;
+  button-border: 2px black red;
+  button-radius: 10px;
+}
+
+@button {
+  color: purple;
+  background-color: aqua;
+  color-active: yellow;
+  background-color-active: orange;
+  border-width: 0;
+  border-color: orange;
+  border-color-active: red;
+  border-radius: 0;
+  class-disabled: disabled;
+  class-active: active;
+}
+
+.my-button-3 {
+  button-radius: 10px;
+}
+
+.my-button-4 {
+  button: truc;
 }
 `,
-  output: `.container {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    overflow: hidden;
-    margin-left: auto;
-    margin-right: auto
+  output: `button,
+.my-button,
+button:visited,
+.my-button:visited {
+  display: inline-block;
+  margin: 0;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  color: grey;
+  background-color: white;
 }
-.row {
-    clear: both;
-    margin-right: -1.5rem;
-    display: flex;
-    flex-flow: row wrap;
-    align-items: flex-start;
-    align-content: flex-start
+
+button:active, button:hover, .my-button:active, .my-button:hover, button.active, .my-button.active {
+  color: black;
+  background-color: silver;
+  box-shadow: inset 0 0 0 0 black;
 }
-.row::after {
-    content: "";
-    display: table;
-    clear: both
+
+button:disabled, button:disabled:active, button:disabled:hover, .my-button:disabled, .my-button:disabled:active, .my-button:disabled:hover, button.disabled, button.disabled:active, button.disabled:hover, .my-button.disabled, .my-button.disabled:active, .my-button.disabled:hover {
+  opacity: 0.25;
+  cursor: default;
 }
-@media (min-width: 43.5rem) {
-    .container {
-        width: 42.5rem
-    }
+
+.my-button-2, .my-button-2:visited {
+  display: inline-block;
+  margin: 0;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  color: red;
+  background-color: pink;
+  box-shadow: inset 0 0 0 2px black;
+  border-radius: 10px;
 }
-@media (min-width: 64rem) {
-    .container {
-        width: 63rem
-    }
+
+.my-button-2:active, .my-button-2:hover, .my-button-2.active {
+  color: blue;
+  background-color: green;
+  box-shadow: inset 0 0 0 2px red;
 }
-@media (min-width: 84.5rem) {
-    .container {
-        width: 83.5rem
-    }
+
+.my-button-2:disabled, .my-button-2:disabled:active, .my-button-2:disabled:hover, .my-button-2.disabled, .my-button-2.disabled:active, .my-button-2.disabled:hover {
+  opacity: 0.25;
+  cursor: default;
 }
-@media (min-width: 105rem) {
-    .container {
-        width: 104rem
-    }
+
+.my-button-3, .my-button-3:visited {
+  display: inline-block;
+  margin: 0;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  color: purple;
+  background-color: aqua;
+  border-radius: 10px;
 }
-@media (min-width: 125.5rem) {
-    .container {
-        width: 124.5rem
-    }
+
+.my-button-3:active, .my-button-3:hover, .my-button-3.active {
+  color: yellow;
+  background-color: orange;
 }
-@media (min-width: 146rem) {
-    .container {
-        width: 145rem
-    }
+
+.my-button-3:disabled, .my-button-3:disabled:active, .my-button-3:disabled:hover, .my-button-3.disabled, .my-button-3.disabled:active, .my-button-3.disabled:hover {
+  opacity: 0.25;
+  cursor: default;
 }
-@media (min-width: 166.5rem) {
-    .container {
-        width: 165.5rem
-    }
+
+.my-button-4, .my-button-4:visited {
+  display: inline-block;
+  margin: 0;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  color: purple;
+  background-color: aqua;
+  border-radius: 10px;
+}
+
+.my-button-4:active, .my-button-4:hover, .my-button-4.active {
+  color: yellow;
+  background-color: orange;
+}
+
+.my-button-4:disabled, .my-button-4:disabled:active, .my-button-4:disabled:hover, .my-button-4.disabled, .my-button-4.disabled:active, .my-button-4.disabled:hover {
+  opacity: 0.25;
+  cursor: default;
 }
 `,
 };

@@ -39,7 +39,15 @@
     "eslint-plugin-react": "^5.0.1"
   },
   "eslintConfig": {
-    "extends": "airbnb"
+    "extends": "airbnb",
+    "rules": {
+      "no-param-reassign": [
+        "error",
+        {
+          "props": false 
+        }
+      ]
+    }
   },
   "ava": {
     "files": [

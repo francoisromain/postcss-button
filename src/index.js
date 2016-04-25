@@ -2,7 +2,7 @@ import postcss from 'postcss';
 import button from './button';
 
 module.exports = postcss.plugin('postcss-button', (opts) => {
-  const settings = {
+  const options = {
     default: {
       color: 'grey',
       backgroundColor: 'white',
@@ -12,61 +12,98 @@ module.exports = postcss.plugin('postcss-button', (opts) => {
       borderColor: 'grey',
       borderColorActive: 'black',
       borderRadius: 0,
+      classActive: 'active',
+      classDisabled: 'disabled',
     },
   };
 
-  Object.assign(settings.default, opts);
+  Object.assign(options.default, opts);
 
   return (css) => {
     css.walk((node) => {
       if (node.type === 'atrule' && node.name.match(/^button/)) {
         const name = node.params ? node.params : 'default';
-        settings[name] = settings[name] || {};
+
+        options[name] = options[name] || {};
+
         node.walkDecls((decl) => {
           if (decl.prop.match(/^color$/)) {
-            settings[name].color = decl.value;
+            options[name].color = decl.value;
           } else if (decl.prop.match(/^background-color$/)) {
-            settings[name].backgroundColor = decl.value;
+            options[name].backgroundColor = decl.value;
           } else if (decl.prop.match(/^color-active$/)) {
-            settings[name].colorActive = decl.value;
+            options[name].colorActive = decl.value;
           } else if (decl.prop.match(/^background-color-active$/)) {
-            settings[name].backgroundColorActive = decl.value;
+            options[name].backgroundColorActive = decl.value;
           } else if (decl.prop.match(/^border-width$/)) {
-            settings[name].borderWidth = decl.value;
+            options[name].borderWidth = decl.value;
           } else if (decl.prop.match(/^border-color$/)) {
-            settings[name].borderColor = decl.value;
+            options[name].borderColor = decl.value;
           } else if (decl.prop.match(/^border-color-active$/)) {
-            settings[name].borderColorActive = decl.value;
+            options[name].borderColorActive = decl.value;
           } else if (decl.prop.match(/^border-radius$/)) {
-            settings[name].borderRadius = decl.value;
+            options[name].borderRadius = decl.value;
+          } else if (decl.prop.match(/^class-active$/)) {
+            options[name].classActive = decl.value;
+          } else if (decl.prop.match(/^class-disabled$/)) {
+            options[name].classDisabled = decl.value;
           }
         });
+
         node.remove();
       } else if (node.type === 'decl' && node.prop.match(/^button/)) {
-        let options;
+        options.tmp = options.tmp ? options.tmp : options.default;
+
         if (node.prop.match(/^button$/)) {
-          options = settings[node.value] ? settings[node.value] : settings.default;
+          Object.assign(options.tmp, options[node.value]);
         } else if (node.prop.match(/^button-color$/)) {
           const value = node.value.split(' ');
-          options = {
-            color: value[0] || '',
-            backgroundColor: value[1] || '',
-            colorActive: value[2] || '',
-            backgroundColorActive: value[3] || '',
-          };
+
+          options.tmp.color = value[0];
+
+          if (value[1]) {
+            options.tmp.backgroundColor = value[1];
+          }
+
+          if (value[2]) {
+            options.tmp.colorActive = value[2];
+          }
+
+          if (value[3]) {
+            options.tmp.backgroundColorActive = value[3];
+          }
         } else if (node.prop.match(/^button-radius$/)) {
-          options = {
-            borderRadius: node.value,
-          };
+          options.tmp.borderRadius = node.value;
         } else if (node.prop.match(/^button-border$/)) {
           const value = node.value.split(' ');
-          options = {
-            borderWidth: value[0] || '',
-            borderColor: value[2] || settings.default.borderColor,
-            borderColorActive: value[3] || settings.default.borderColorActive,
-          };
+
+          options.tmp.borderWidth = value[0];
+
+          if (value[1]) {
+            options.tmp.borderColor = value[1];
+          }
+
+          if (value[2]) {
+            options.tmp.borderColorActive = value[2];
+          }
+        } else if (node.prop.match(/^button-class$/)) {
+          const value = node.value.split(' ');
+          options.tmp.classActive = value[0];
+
+          if (value[1]) {
+            options.tmp.classDisabled = value[1];
+          }
         }
-        button(node, options);
+
+        if (options.tmp && !node.next()) {
+          button(node.parent, options.tmp);
+          delete options.tmp;
+        }
+
+        node.remove();
+      } else if (options.tmp && !node.next()) {
+        button(node.parent, options.tmp);
+        delete options.tmp;
       }
     });
   };

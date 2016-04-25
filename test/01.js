@@ -1,51 +1,56 @@
 const tests = {
-  input: `@gs {}
+  input: `.my-button {
+  button: default;
+}
 
-.container {
-  gs: container;
+.my-button-2 {
+  button-color: red pink blue green;
+  button-border: 2px black red;
+  button-radius: 10px;
 }
 `,
-  output: `.container {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    overflow: hidden;
-    margin-left: auto;
-    margin-right: auto
+  output: `.my-button, .my-button:visited {
+  display: inline-block;
+  margin: 0;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  color: grey;
+  background-color: white;
 }
-@media (min-width: 43.5rem) {
-    .container {
-        width: 42.5rem
-    }
+
+.my-button:active, .my-button:hover, .my-button.active {
+  color: black;
+  background-color: silver;
+  box-shadow: inset 0 0 0 0 black;
 }
-@media (min-width: 64rem) {
-    .container {
-        width: 63rem
-    }
+
+.my-button:disabled, .my-button:disabled:active, .my-button:disabled:hover, .my-button.disabled, .my-button.disabled:active, .my-button.disabled:hover {
+  opacity: 0.25;
+  cursor: default;
 }
-@media (min-width: 84.5rem) {
-    .container {
-        width: 83.5rem
-    }
+
+.my-button-2, .my-button-2:visited {
+  display: inline-block;
+  margin: 0;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  color: red;
+  background-color: pink;
+  box-shadow: inset 0 0 0 2px black;
+  border-radius: 10px;
 }
-@media (min-width: 105rem) {
-    .container {
-        width: 104rem
-    }
+
+.my-button-2:active, .my-button-2:hover, .my-button-2.active {
+  color: blue;
+  background-color: green;
+  box-shadow: inset 0 0 0 2px red;
 }
-@media (min-width: 125.5rem) {
-    .container {
-        width: 124.5rem
-    }
-}
-@media (min-width: 146rem) {
-    .container {
-        width: 145rem
-    }
-}
-@media (min-width: 166.5rem) {
-    .container {
-        width: 165.5rem
-    }
+
+.my-button-2:disabled, .my-button-2:disabled:active, .my-button-2:disabled:hover, .my-button-2.disabled, .my-button-2.disabled:active, .my-button-2.disabled:hover {
+  opacity: 0.25;
+  cursor: default;
 }
 `,
 };
