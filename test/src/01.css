@@ -1,0 +1,8 @@
+.my-button {
+  button: default;
+}
+
+.my-button-2 {
+  button-color: red pink blue green;
+  button-border: 2px black red;
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" class="grid">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>postcss-button</title>
+  <meta name="description" content="A PostCSS plugin to create buttons.">
+  <meta name="keywords" content="Grid system, css, postcss, npm, masonry">
+  <link rel="stylesheet" href="dist/styles.css">
+</head>
+
+<body>
+  <header class="container" role="banner">
+    <h1>postcss-button</h1>
+    <p><a href="https://github.com/francoisromain/postcss-button">Github</a></p>
+    <h4>A PostCSS plugin to create buttons.</h4>
+    <hr />
+  </header>
+  <main class="container" role="main">
+    <h2 id="settings">Settings</h2>
+    <pre>@button [name] {
+  color: grey;
+  background-color: white;
+  color-active: white;
+  background-color-active: grey;
+  border-width: 0;
+  border-style: none;
+  border-color: grey;
+  border-color-active: black;
+  class-active: active;
+  class-disabled: disabled;
+}</pre>
+    <h2 id="buttons">Buttons</h2>
+    <p><code>.my-button { button: [name] }</code></p>
+    <h3>Default buttons</h3>
+    <button class="btn btn-xxs">Button xxs</button>
+    <button class="btn btn-xs">Button xs</button>
+    <button class="btn btn-s">Button s</button>
+    <button class="btn btn-m">Button m</button>
+    <button class="btn btn-l">Button l</button>
+    <h3>Rounded corner buttons</h3>
+    <a class="btn btn-xxs btn-rnd">Button xxs</a>
+    <a class="btn btn-xs btn-rnd">Button xs</a>
+    <a class="btn btn-s btn-rnd">Button s</a>
+    <a class="btn btn-m btn-rnd">Button m</a>
+    <a class="btn btn-l btn-rnd">Button l</a>
+    <h3>Pills buttons</h3>
+    <a class="btn btn-xxs btn-pill">Button xxs</a>
+    <a class="btn btn-xs btn-pill">Button xs</a>
+    <a class="btn btn-s btn-pill">Button s</a>
+    <a class="btn btn-m btn-pill">Button m</a>
+    <a class="btn btn-l btn-pill">Button l</a>
+    <h3>Alternate buttons</h3>
+    <a class="btn-xxs btn-alt">Button xxs</a>
+    <a class="btn-xs btn-alt">Button xs</a>
+    <a class="btn-s btn-alt">Button s</a>
+    <a class="btn-m btn-alt">Button m</a>
+    <a class="btn-l btn-alt">Button l</a>
+    <h3>Bordered buttons</h3>
+    <a class="btn-xxs btn-border">Button xxs</a>
+    <a class="btn-xs btn-border">Button xs</a>
+    <a class="btn-s btn-border">Button s</a>
+    <a class="btn-m btn-border">Button m</a>
+    <a class="btn-l btn-border">Button l</a>
+    <h3>Example of combination</h3>
+    <a class="btn-l btn-alt l btn-rnd margin-bottom">Large button with large text rounded corners flash background</a>
+    <a class="btn btn-xl xl btn-full margin-bottom">Full width xl button with xl text flash background</a><a class="btn btn-xxs btn-border s btn-pill margin-bottom">Small button small text pill shape border</a><a class="btn btn-xs btn-alt s btn-pill margin-bottom">Small button small text pill shape</a>
+  </main>
+  <footer>
+    <div class="container">
+      <hr class="margin-top-xs" />
+      <p class="s">© 2016 <a href="http://francoisromain.com">François Romain</a> | <a href="https://twitter.com/francoisromain">Twitter</a> | <a href="https://github.com/francoisromain">Github</a></p>
+    </div>
+  </footer>
+</body>
+
+</html>
