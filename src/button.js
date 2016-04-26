@@ -4,10 +4,10 @@ export default (rule, options) => {
   const ruleSelectors = rule.selectors;
 
   // disabled rule
-  let ruleDisabledSelectors = [];
+  const ruleDisabledSelectors = [];
 
   ruleSelectors.forEach((selector) => {
-    ruleDisabledSelectors = ruleDisabledSelectors.concat([
+    ruleDisabledSelectors.push(...[
       `${selector}:disabled`,
       `${selector}:disabled:active`,
       `${selector}:disabled:hover`,
@@ -16,7 +16,7 @@ export default (rule, options) => {
 
   if (options.classDisabled) {
     ruleSelectors.forEach((selector) => {
-      ruleDisabledSelectors = ruleDisabledSelectors.concat([
+      ruleDisabledSelectors.push(...[
         `${selector}.${options.classDisabled}`,
         `${selector}.${options.classDisabled}:active`,
         `${selector}.${options.classDisabled}:hover`,
@@ -36,10 +36,10 @@ export default (rule, options) => {
   if (options.colorActive ||
     options.backgroundColorActive ||
     options.borderColorActive) {
-    let ruleActiveSelectors = [];
+    const ruleActiveSelectors = [];
 
     ruleSelectors.forEach((selector) => {
-      ruleActiveSelectors = ruleActiveSelectors.concat([
+      ruleActiveSelectors.push(...[
         `${selector}:active`,
         `${selector}:hover`,
       ]);
@@ -74,7 +74,7 @@ export default (rule, options) => {
   }
 
   // default rule
-  let declNew = [
+  const declNew = [
     postcss.decl({ prop: 'display', value: 'inline-block' }),
     postcss.decl({ prop: 'margin', value: '0' }),
     postcss.decl({ prop: 'cursor', value: 'pointer' }),
@@ -83,19 +83,19 @@ export default (rule, options) => {
   ];
 
   if (options.color) {
-    declNew = declNew.concat([
+    declNew.push(...[
       postcss.decl({ prop: 'color', value: options.color }),
     ]);
   }
 
   if (options.backgroundColor) {
-    declNew = declNew.concat([
+    declNew.push(...[
       postcss.decl({ prop: 'background-color', value: options.backgroundColor }),
     ]);
   }
 
   if (options.borderWidth && options.borderWidth !== '0') {
-    declNew = declNew.concat([
+    declNew.push(...[
       postcss.decl({
         prop: 'box-shadow',
         value: `inset 0 0 0 ${options.borderWidth} ${options.borderColor}`,
