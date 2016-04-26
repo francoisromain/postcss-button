@@ -52,12 +52,14 @@ module.exports = postcss.plugin('postcss-button', (opts) => {
         node.remove();
       } else if (node.type === 'decl' && node.prop.match(/^button/)) {
         options.tmp = options.tmp ? options.tmp : Object.assign({}, options.default);
+        const value = node.value.split(/\s+(?![^\[]*\]|[^(]*\)|[^\{]*})/);
+        const value2 = node.value.split(/\s+(?=[^\])}]*([\[({]|$))/);
+
+        console.log('value:', node.value, value, value2);
 
         if (node.prop.match(/^button$/)) {
-          Object.assign(options.tmp, options[node.value]);
+          Object.assign(options.tmp, options[value[0]]);
         } else if (node.prop.match(/^button-color$/)) {
-          const value = node.value.split(/\s+(?![^\[]*\]|[^(]*\)|[^\{]*})/);
-
           options.tmp.color = value[0];
 
           if (value[1]) {
@@ -72,8 +74,6 @@ module.exports = postcss.plugin('postcss-button', (opts) => {
             options.tmp.backgroundColorActive = value[3];
           }
         } else if (node.prop.match(/^button-border$/)) {
-          const value = node.value.split(/\s+(?![^\[]*\]|[^(]*\)|[^\{]*})/);
-
           options.tmp.borderWidth = value[0];
 
           if (value[1]) {
@@ -84,7 +84,6 @@ module.exports = postcss.plugin('postcss-button', (opts) => {
             options.tmp.borderColorActive = value[2];
           }
         } else if (node.prop.match(/^button-class$/)) {
-          const value = node.value.split(/\s+(?![^\[]*\]|[^(]*\)|[^\{]*})/);
           options.tmp.classActive = value[0];
 
           if (value[1]) {
