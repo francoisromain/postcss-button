@@ -88,11 +88,28 @@ See [PostCSS docs](https://github.com/postcss/postcss#usage) to setup with Gulp,
 
 If optional values are not set, fallback to the atRule declaration values.
 
-### Examples
+* * * 
+
+## Examples
 
 There are two ways of declaring a button: 
 
-### With a _name_ referring to an atRule declaration
+#### With a _name_ referring to an atRule declaration
+
+``` css
+@button big-button {
+  color: grey;
+  background-color: white;
+  color-active: white;
+  background-color-active: grey;
+  border-width: 0;
+  border-style: none;
+  border-color: grey;
+  border-color-active: black;
+  class-active: active;
+  class-disabled: disabled;
+}
+```
 
 ```css
 .my-button {
@@ -100,7 +117,7 @@ There are two ways of declaring a button:
 }
 ```
 
-### With specific declarations
+#### With specific declarations
 
 ``` css 
 .my-button {
@@ -110,7 +127,7 @@ There are two ways of declaring a button:
 }
 ```
 
-Missing declarations will use the _default_ settings. 
+Missing declarations use the _default_ settings. 
 
 01: [input](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/src/01.css), [output](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/dist/01.css), [markup](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/01.html), [demo](http://localhost/francoisromain.github.io/postcss-button/test/01.html)
 

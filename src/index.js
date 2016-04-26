@@ -53,9 +53,6 @@ module.exports = postcss.plugin('postcss-button', (opts) => {
       } else if (node.type === 'decl' && node.prop.match(/^button/)) {
         options.tmp = options.tmp ? options.tmp : Object.assign({}, options.default);
         const value = node.value.split(/\s+(?![^\[]*\]|[^(]*\)|[^\{]*})/);
-        const value2 = node.value.split(/\s+(?=[^\])}]*([\[({]|$))/);
-
-        console.log('value:', node.value, value, value2);
 
         if (node.prop.match(/^button$/)) {
           Object.assign(options.tmp, options[value[0]]);
