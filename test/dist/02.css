@@ -69,16 +69,36 @@ button:disabled, button:disabled:active, button:disabled:hover, .my-button:disab
   cursor: pointer;
   text-decoration: none;
   border: none;
+  color: blue;
+  background-color: azure;
+}
+
+.my-button-4:active, .my-button-4:hover, .my-button-4.active {
+  color: bisque;
+  background-color: brown;
+}
+
+.my-button-4:disabled, .my-button-4:disabled:active, .my-button-4:disabled:hover, .my-button-4.disabled, .my-button-4.disabled:active, .my-button-4.disabled:hover {
+  opacity: 0.25;
+  cursor: default;
+}
+
+.my-button-5, .my-button-5:visited {
+  display: inline-block;
+  margin: 0;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
   color: purple;
   background-color: aqua;
 }
 
-.my-button-4:active, .my-button-4:hover, .my-button-4.active {
+.my-button-5:active, .my-button-5:hover, .my-button-5.active {
   color: yellow;
   background-color: orange;
 }
 
-.my-button-4:disabled, .my-button-4:disabled:active, .my-button-4:disabled:hover, .my-button-4.disabled, .my-button-4.disabled:active, .my-button-4.disabled:hover {
+.my-button-5:disabled, .my-button-5:disabled:active, .my-button-5:disabled:hover, .my-button-5.disabled, .my-button-5.disabled:active, .my-button-5.disabled:hover {
   opacity: 0.25;
   cursor: default;
 }

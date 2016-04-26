@@ -25,17 +25,21 @@ button,
 }
 
 @button truc {
-  color: purple;
-  background-color: aqua;
-  color-active: yellow;
-  background-color-active: orange;
+  color: blue;
+  background-color: azure;
+  color-active: bisque;
+  background-color-active: brown;
   border-width: 0;
-  border-color: orange;
-  border-color-active: red;
+  border-color: chocolate;
+  border-color-active: cyan;
   class-disabled: disabled;
   class-active: active;
 }
 
 .my-button-4 {
   button: truc;
+}
+
+.my-button-5 {
+  button: chose;
 }
