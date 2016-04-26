@@ -86,7 +86,7 @@ See [PostCSS docs](https://github.com/postcss/postcss#usage) to setup with Gulp,
 - _active_: class name to apply the active styles.
 - _disabled_ (optional): class name to apply the disabled styles.
 
-If optional values are not set, fallback to the atRule declaration values.
+Missing declarations fallback to the _default_ settings. 
 
 * * * 
 
@@ -126,8 +126,6 @@ There are two ways of declaring a button:
   button-classes: active diabled;
 }
 ```
-
-Missing declarations use the _default_ settings. 
 
 01: [input](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/src/01.css), [output](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/dist/01.css), [markup](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/01.html), [demo](http://localhost/francoisromain.github.io/postcss-button/test/01.html)
 
