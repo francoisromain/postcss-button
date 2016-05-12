@@ -42,7 +42,6 @@ See [PostCSS docs](https://github.com/postcss/postcss#usage) to setup with Gulp,
   color-active: white;
   background-color-active: grey;
   border-width: 0;
-  border-style: none;
   border-color: grey;
   border-color-active: black;
   class-active: active;
@@ -62,22 +61,31 @@ See [PostCSS docs](https://github.com/postcss/postcss#usage) to setup with Gulp,
 
 - _name_: string identifier referring to a settings atRule. Set to _default_ to use default settings.
 
-### Colors
+### Color
 
-`button-color: [color] ([background-color]) ([color-active]) ([background-color-active]);`
+`button-color: [color] ([color-active]) ([color-hover]);`
 
 - _color_: button text color.
+- _color-active_ (optional): button text color when active.
+- _color-hover_ (optional): button text color on mouseover.
+
+
+### Background color
+
+`button-background: [background-color] ([background-color-active]) ([background-color-hover]);`
+
 - _background-color_ (optional): button background color.
-- _color-active_ (optional): button text color on mouseover.
-- _background-color_ (optional): button background color on mouseover.
+- _background-color-active_ (optional): button background color when active.
+- _background-color-hover_ (optional): button background color on mouseover.
 
 ### Border
 
-`button-border: [width] ([border-color]) ([border-color-active])`
+`button-border: [width] ([border-color]) ([border-color-active]) ([border-color-hover])`
 
 - _width_: width of the border.
 - _border-color_ (optional): color of the border.
-- _border-color-active_ (optional): color of the border on mouseover.
+- _border-color-active_ (optional): color of the border when active.
+- _border-color-hover (optional): color of the border on mouseover.
 
 ### Classes
 
@@ -94,7 +102,7 @@ Missing declarations fallback to the _default_ settings.
 
 There are two ways of declaring a button: 
 
-#### With a _name_ referring to an atRule declaration
+#### With an atRule declaration
 
 ``` css
 @button big-button {

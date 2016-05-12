@@ -1,53 +1,37 @@
 const tests = {
-  input: `.my-button {
-  button: default;
-}
-
-.my-button-2 {
-  button-color: red pink blue green;
-  button-border: 2px black red;
+  input: `.your-button {
+  button-color: skyblue white white;
+  button-background: white skyblue silver;
+  button-border: 4px skyblue skyblue silver;
+  button-classes: active diabled;
 }
 `,
-  output: `.my-button, .my-button:visited {
+  output: `.your-button, .your-button:visited {
   display: inline-block;
   margin: 0;
   cursor: pointer;
   text-decoration: none;
   border: none;
-  color: grey;
+  color: skyblue;
   background-color: white;
+  box-shadow: inset 0 0 0 4px skyblue;
 }
-
-.my-button:active, .my-button:hover, .my-button.active {
+.your-button:active, .your-button.active {
   color: white;
-  background-color: grey;
+  background-color: skyblue;
+  box-shadow: inset 0 0 0 4px skyblue;
 }
-
-.my-button:disabled, .my-button:disabled:active, .my-button:disabled:hover, .my-button.disabled, .my-button.disabled:active, .my-button.disabled:hover {
+.your-button:hover, .your-button.active:hover {
+  color: white;
+  background-color: silver;
+  box-shadow: inset 0 0 0 4px silver;
+}
+.your-button:disabled, .your-button:disabled:active, .your-button:disabled:hover, .your-button.disabled, .your-button.disabled:active, .your-button.disabled:hover {
   opacity: 0.25;
   cursor: default;
-}
-
-.my-button-2, .my-button-2:visited {
-  display: inline-block;
-  margin: 0;
-  cursor: pointer;
-  text-decoration: none;
-  border: none;
-  color: red;
-  background-color: pink;
-  box-shadow: inset 0 0 0 2px black;
-}
-
-.my-button-2:active, .my-button-2:hover, .my-button-2.active {
-  color: blue;
-  background-color: green;
-  box-shadow: inset 0 0 0 2px red;
-}
-
-.my-button-2:disabled, .my-button-2:disabled:active, .my-button-2:disabled:hover, .my-button-2.disabled, .my-button-2.disabled:active, .my-button-2.disabled:hover {
-  opacity: 0.25;
-  cursor: default;
+  color: skyblue;
+  background-color: white;
+  box-shadow: inset 0 0 0 4px skyblue;
 }
 `,
 };

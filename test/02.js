@@ -1,129 +1,49 @@
 const tests = {
-  input: `button,
+  input: `@button test {
+  border-width: 1px;
+  color: #ff5400;
+  background-color: rgba(248, 247, 243, 0);
+  border-color: grey;
+  color-hover: #f8f7f3;
+  background-color-hover: #ff5400;
+  border-color-hover: #ff5400;
+  color-active: #f8f7f3;
+  background-color-active: #bcb9af;
+  border-color-active: #bcb9af;
+  class-active: active;
+  class-disabled: disabled;
+}
+
 .my-button {
   button: test;
 }
-
-.my-button-2 {
-  button-color: red pink blue green;
-  button-border: 2px black red;
-}
-
-@button {
-  color: purple;
-  background-color: aqua;
-  color-active: yellow;
-  background-color-active: orange;
-  border-width: 0;
-  border-color: orange;
-  border-color-active: red;
-  class-disabled: disabled;
-  class-active: active;
-}
-
-.my-button-3 {
-  button: 10px;
-}
-
-@button truc {
-  color: purple;
-  background-color: aqua;
-  color-active: yellow;
-  background-color-active: orange;
-  border-width: 0;
-  border-color: orange;
-  border-color-active: red;
-  class-disabled: disabled;
-  class-active: active;
-}
-
-.my-button-4 {
-  button: truc;
-}
 `,
-  output: `button,
-.my-button,
-button:visited,
-.my-button:visited {
+  output: `.my-button, .my-button:visited {
   display: inline-block;
   margin: 0;
   cursor: pointer;
   text-decoration: none;
   border: none;
-  color: grey;
-  background-color: white;
+  color: #ff5400;
+  background-color: rgba(248, 247, 243, 0);
+  box-shadow: inset 0 0 0 1px grey;
 }
-
-button:active, button:hover, .my-button:active, .my-button:hover, button.active, .my-button.active {
-  color: white;
-  background-color: grey;
+.my-button:active, .my-button.active {
+  color: #f8f7f3;
+  background-color: #bcb9af;
+  box-shadow: inset 0 0 0 1px #bcb9af;
 }
-
-button:disabled, button:disabled:active, button:disabled:hover, .my-button:disabled, .my-button:disabled:active, .my-button:disabled:hover, button.disabled, button.disabled:active, button.disabled:hover, .my-button.disabled, .my-button.disabled:active, .my-button.disabled:hover {
+.my-button:hover, .my-button.active:hover {
+  color: #f8f7f3;
+  background-color: #ff5400;
+  box-shadow: inset 0 0 0 1px #ff5400;
+}
+.my-button:disabled, .my-button:disabled:active, .my-button:disabled:hover, .my-button.disabled, .my-button.disabled:active, .my-button.disabled:hover {
   opacity: 0.25;
   cursor: default;
-}
-
-.my-button-2, .my-button-2:visited {
-  display: inline-block;
-  margin: 0;
-  cursor: pointer;
-  text-decoration: none;
-  border: none;
-  color: red;
-  background-color: pink;
-  box-shadow: inset 0 0 0 2px black;
-}
-
-.my-button-2:active, .my-button-2:hover, .my-button-2.active {
-  color: blue;
-  background-color: green;
-  box-shadow: inset 0 0 0 2px red;
-}
-
-.my-button-2:disabled, .my-button-2:disabled:active, .my-button-2:disabled:hover, .my-button-2.disabled, .my-button-2.disabled:active, .my-button-2.disabled:hover {
-  opacity: 0.25;
-  cursor: default;
-}
-
-.my-button-3, .my-button-3:visited {
-  display: inline-block;
-  margin: 0;
-  cursor: pointer;
-  text-decoration: none;
-  border: none;
-  color: purple;
-  background-color: aqua;
-}
-
-.my-button-3:active, .my-button-3:hover, .my-button-3.active {
-  color: yellow;
-  background-color: orange;
-}
-
-.my-button-3:disabled, .my-button-3:disabled:active, .my-button-3:disabled:hover, .my-button-3.disabled, .my-button-3.disabled:active, .my-button-3.disabled:hover {
-  opacity: 0.25;
-  cursor: default;
-}
-
-.my-button-4, .my-button-4:visited {
-  display: inline-block;
-  margin: 0;
-  cursor: pointer;
-  text-decoration: none;
-  border: none;
-  color: purple;
-  background-color: aqua;
-}
-
-.my-button-4:active, .my-button-4:hover, .my-button-4.active {
-  color: yellow;
-  background-color: orange;
-}
-
-.my-button-4:disabled, .my-button-4:disabled:active, .my-button-4:disabled:hover, .my-button-4.disabled, .my-button-4.disabled:active, .my-button-4.disabled:hover {
-  opacity: 0.25;
-  cursor: default;
+  color: #ff5400;
+  background-color: rgba(248, 247, 243, 0);
+  box-shadow: inset 0 0 0 1px grey;
 }
 `,
 };

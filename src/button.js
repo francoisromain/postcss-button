@@ -29,8 +29,52 @@ export default (rule, options) => {
 
   ruleDisabled.append({ prop: 'opacity', value: '0.25' });
   ruleDisabled.append({ prop: 'cursor', value: 'default' });
+  ruleDisabled.append({ prop: 'color', value: options.color });
+  ruleDisabled.append({ prop: 'background-color', value: options.backgroundColor });
+  ruleDisabled.append({
+    prop: 'box-shadow',
+    value: `inset 0 0 0 ${options.borderWidth} ${options.borderColor}`,
+  });
 
   ruleDisabled.moveAfter(rule);
+
+  // hover rule
+  if (options.colorHover ||
+    options.backgroundColorHover ||
+    options.borderColorHover) {
+    const ruleHoverSelectors = [];
+
+    ruleSelectors.forEach((selector) => {
+      ruleHoverSelectors.push(...[`${selector}:hover`]);
+    });
+
+    if (options.classActive) {
+      ruleSelectors.forEach((selector) => {
+        ruleHoverSelectors.push(`${selector}.${options.classActive}:hover`);
+      });
+    }
+
+    const ruleHover = postcss.rule();
+
+    ruleHover.selectors = ruleHoverSelectors;
+
+    if (options.colorHover) {
+      ruleHover.append({ prop: 'color', value: options.colorHover });
+    }
+
+    if (options.backgroundColorHover) {
+      ruleHover.append({ prop: 'background-color', value: options.backgroundColorHover });
+    }
+
+    if (options.borderColorHover && options.borderWidth !== '0') {
+      ruleHover.append({
+        prop: 'box-shadow',
+        value: `inset 0 0 0 ${options.borderWidth} ${options.borderColorHover}`,
+      });
+    }
+
+    ruleHover.moveAfter(rule);
+  }
 
   // active rule
   if (options.colorActive ||
@@ -39,10 +83,7 @@ export default (rule, options) => {
     const ruleActiveSelectors = [];
 
     ruleSelectors.forEach((selector) => {
-      ruleActiveSelectors.push(...[
-        `${selector}:active`,
-        `${selector}:hover`,
-      ]);
+      ruleActiveSelectors.push(...[`${selector}:active`]);
     });
 
     if (options.classActive) {
@@ -72,7 +113,6 @@ export default (rule, options) => {
 
     ruleActive.moveAfter(rule);
   }
-
   // default rule
   const declNew = [
     postcss.decl({ prop: 'display', value: 'inline-block' }),
