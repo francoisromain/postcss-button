@@ -1,45 +1,18 @@
-button,
+@button test {
+  border-width: 1px;
+  color: #ff5400;
+  background-color: rgba(248, 247, 243, 0);
+  border-color: grey;
+  color-hover: #f8f7f3;
+  background-color-hover: #ff5400;
+  border-color-hover: #ff5400;
+  color-active: #f8f7f3;
+  background-color-active: #bcb9af;
+  border-color-active: #bcb9af;
+  class-active: active;
+  class-disabled: disabled;
+}
+
 .my-button {
   button: test;
-}
-
-.my-button-2 {
-  button-color: red pink blue green;
-  button-border: 2px black red;
-}
-
-@button {
-  color: purple;
-  background-color: aqua;
-  color-active: yellow;
-  background-color-active: orange;
-  border-width: 0;
-  border-color: orange;
-  border-color-active: red;
-  class-disabled: disabled;
-  class-active: active;
-}
-
-.my-button-3 {
-  button: 10px;
-}
-
-@button truc {
-  color: blue;
-  background-color: azure;
-  color-active: bisque;
-  background-color-active: brown;
-  border-width: 0;
-  border-color: chocolate;
-  border-color-active: cyan;
-  class-disabled: disabled;
-  class-active: active;
-}
-
-.my-button-4 {
-  button: truc;
-}
-
-.my-button-5 {
-  button: chose;
 }

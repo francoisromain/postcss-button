@@ -1,0 +1,28 @@
+@button {
+  border-width: 1px;
+  color: orangered;
+  background-color: white;
+  border-color: silver;
+  color-hover: whitesmoke;
+  background-color-hover: orangered;
+  border-color-hover: orangered;
+  color-active: whitesmoke;
+  background-color-active: silver;
+  border-color-active: silver;
+  class-active: active;
+  class-disabled: disabled;
+}
+
+.my-button {
+  button: default;
+  padding: 1rem 2rem;
+}
+
+.your-button {
+  button-color: lightskyblue white white;
+  button-background-color: white lightskyblue silver;
+  button-border: 4px lightskyblue lightskyblue silver;
+  button-classes: active diabled;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+}

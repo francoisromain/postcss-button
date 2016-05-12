@@ -1,8 +1,6 @@
-.my-button {
-  button: default;
-}
-
-.my-button-2 {
-  button-color: red pink blue green;
-  button-border: 2px black red;
+.your-button {
+  button-color: skyblue white white;
+  button-background: white skyblue silver;
+  button-border: 4px skyblue skyblue silver;
+  button-classes: active diabled;
 }

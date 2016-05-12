@@ -7,7 +7,8 @@
   <title>postcss-button</title>
   <meta name="description" content="A PostCSS plugin to create buttons.">
   <meta name="keywords" content="Grid system, css, postcss, npm, masonry">
-  <link rel="stylesheet" href="dist/styles.css">
+  <link rel="stylesheet" href="http://francoisromain.github.io/system.css/dist/styles.css">
+  <link rel="stylesheet" href="dist/button.css">
 </head>
 
 <body>
@@ -18,54 +19,142 @@
     <hr />
   </header>
   <main class="container" role="main">
-    <h2 id="settings">Settings</h2>
-    <pre>@button [name] {
-  color: grey;
-  background-color: white;
-  color-active: white;
-  background-color-active: grey;
-  border-width: 0;
-  border-style: none;
+    <h2 id="settings">Buttons (with an atRule declaration)</h2>
+    <div class=row>
+      <div class="bloc-code">
+        <h4>Input</h4>
+        <pre><code class="language-css">/* Define global settings */
+
+@button test {
+  border-width: 1px;
+  color: #ff5400;
+  background-color: rgba(248, 247, 243, 0);
   border-color: grey;
-  border-color-active: black;
+  color-hover: #f8f7f3;
+  background-color-hover: #ff5400;
+  border-color-hover: #ff5400;
+  color-active: #f8f7f3;
+  background-color-active: #bcb9af;
+  border-color-active: #bcb9af;
   class-active: active;
   class-disabled: disabled;
-}</pre>
-    <h2 id="buttons">Buttons</h2>
-    <p><code>.my-button { button: [name] }</code></p>
-    <h3>Default buttons</h3>
-    <button class="btn btn-xxs">Button xxs</button>
-    <button class="btn btn-xs">Button xs</button>
-    <button class="btn btn-s">Button s</button>
-    <button class="btn btn-m">Button m</button>
-    <button class="btn btn-l">Button l</button>
-    <h3>Rounded corner buttons</h3>
-    <a class="btn btn-xxs btn-rnd">Button xxs</a>
-    <a class="btn btn-xs btn-rnd">Button xs</a>
-    <a class="btn btn-s btn-rnd">Button s</a>
-    <a class="btn btn-m btn-rnd">Button m</a>
-    <a class="btn btn-l btn-rnd">Button l</a>
-    <h3>Pills buttons</h3>
-    <a class="btn btn-xxs btn-pill">Button xxs</a>
-    <a class="btn btn-xs btn-pill">Button xs</a>
-    <a class="btn btn-s btn-pill">Button s</a>
-    <a class="btn btn-m btn-pill">Button m</a>
-    <a class="btn btn-l btn-pill">Button l</a>
-    <h3>Alternate buttons</h3>
-    <a class="btn-xxs btn-alt">Button xxs</a>
-    <a class="btn-xs btn-alt">Button xs</a>
-    <a class="btn-s btn-alt">Button s</a>
-    <a class="btn-m btn-alt">Button m</a>
-    <a class="btn-l btn-alt">Button l</a>
-    <h3>Bordered buttons</h3>
-    <a class="btn-xxs btn-border">Button xxs</a>
-    <a class="btn-xs btn-border">Button xs</a>
-    <a class="btn-s btn-border">Button s</a>
-    <a class="btn-m btn-border">Button m</a>
-    <a class="btn-l btn-border">Button l</a>
-    <h3>Example of combination</h3>
-    <a class="btn-l btn-alt l btn-rnd margin-bottom">Large button with large text rounded corners flash background</a>
-    <a class="btn btn-xl xl btn-full margin-bottom">Full width xl button with xl text flash background</a><a class="btn btn-xxs btn-border s btn-pill margin-bottom">Small button small text pill shape border</a><a class="btn btn-xs btn-alt s btn-pill margin-bottom">Small button small text pill shape</a>
+}
+
+.my-button { 
+  button: test; 
+}</code></pre>
+        
+      </div>
+      <div class="bloc-code">
+        <h4>Output</h4>
+        <pre><code class="language-css">.my-button,
+.my-button:visited {
+  display: inline-block;
+  margin: 0;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  color: #ff5400;
+  background-color: rgba(248, 247, 243, 0);
+  box-shadow: inset 0 0 0 1px grey;
+}
+
+.my-button:active,
+.my-button.active {
+  color: #f8f7f3;
+  background-color: #bcb9af;
+  box-shadow: inset 0 0 0 1px #bcb9af;
+}
+
+.my-button:hover,
+.my-button.active:hover {
+  color: #f8f7f3;
+  background-color: #ff5400;
+  box-shadow: inset 0 0 0 1px #ff5400;
+}
+
+.my-button:disabled,
+.my-button:disabled:active,
+.my-button:disabled:hover,
+.my-button.disabled,
+.my-button.disabled:active,
+.my-button.disabled:hover {
+  opacity: 0.25;
+  cursor: default;
+  color: #ff5400;
+  background-color: rgba(248, 247, 243, 0);
+  box-shadow: inset 0 0 0 1px grey;
+}</code></pre>
+      </div>
+    </div>
+    <h4>Result</h4>
+    <div class=row>
+      <div class="bloc">
+        <button class="my-button">My Button</button> <button class="my-button disabled">My Button disabled</button> <button class="my-button active">My Button active</button>
+      </div>
+    </div>
+    <br />
+    <hr />
+    <h2 id="settings">Buttons (with specific declarations)</h2>
+    <div class=row>
+      <div class="bloc-code">
+        <h4>Input</h4>
+        <pre><code class="language-css">.your-button {
+  button-color: skyblue white white;
+  button-background: white skyblue silver;
+  button-border: 4px skyblue skyblue silver;
+  button-classes: active diabled;
+}</code></pre>
+        
+      </div>
+      <div class="bloc-code">
+        <h4>Output</h4>
+        <pre><code class="language-css">.your-button,
+.your-button:visited {
+  display: inline-block;
+  margin: 0;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  color: skyblue;
+  background-color: white;
+  box-shadow: inset 0 0 0 4px skyblue;
+}
+
+.your-button:active,
+.your-button.active {
+  color: white;
+  background-color: skyblue;
+  box-shadow: inset 0 0 0 4px skyblue;
+}
+
+.your-button:hover,
+.your-button.active:hover {
+  color: white;
+  background-color: silver;
+  box-shadow: inset 0 0 0 4px silver;
+}
+
+.your-button:disabled,
+.your-button:disabled:active,
+.your-button:disabled:hover,
+.your-button.disabled,
+.your-button.disabled:active,
+.your-button.disabled:hover {
+  opacity: 0.25;
+  cursor: default;
+  color: skyblue;
+  background-color: white;
+  box-shadow: inset 0 0 0 4px skyblue;
+}</code></pre>
+      </div>
+    </div>
+    <h4>Result</h4>
+    <div class=row>
+      <div class="bloc">
+        <button class="your-button">Your Button</button> <button class="your-button disabled">Your Button disabled</button> <button class="your-button active">Your Button active</button>
+      </div>
+    </div>
   </main>
   <footer>
     <div class="container">
@@ -73,6 +162,7 @@
       <p class="s">© 2016 <a href="http://francoisromain.com">François Romain</a> | <a href="https://twitter.com/francoisromain">Twitter</a> | <a href="https://github.com/francoisromain">Github</a></p>
     </div>
   </footer>
+  <script src="dist/prism.js"></script>
 </body>
 
 </html>
