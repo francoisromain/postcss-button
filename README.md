@@ -57,7 +57,7 @@ See [PostCSS docs](https://github.com/postcss/postcss#usage) to setup with Gulp,
 
 ### Name
 
-`button: [name]`
+`button: [name];`
 
 - _name_: string identifier referring to a settings atRule. Set to _default_ to use default settings.
 
@@ -80,7 +80,7 @@ See [PostCSS docs](https://github.com/postcss/postcss#usage) to setup with Gulp,
 
 ### Border
 
-`button-border: [width] ([border-color]) ([border-color-active]) ([border-color-hover])`
+`button-border: [width] ([border-color]) ([border-color-active]) ([border-color-hover]);`
 
 - _width_: width of the border.
 - _border-color_ (optional): color of the border.
@@ -89,7 +89,7 @@ See [PostCSS docs](https://github.com/postcss/postcss#usage) to setup with Gulp,
 
 ### Classes
 
-`button-classes: [active] ([disabled])`
+`button-classes: [active] ([disabled]);`
 
 - _active_: class name to apply the active styles.
 - _disabled_ (optional): class name to apply the disabled styles.
@@ -106,14 +106,16 @@ There are two ways of declaring a button:
 
 ``` css
 @button big-button {
-  color: grey;
+  border-width: 1px;
+  color: orange;
   background-color: white;
+  border-color: silver;
+  color-hover: white;
+  background-color-hover: orange;
+  border-color-hover: orange;
   color-active: white;
-  background-color-active: grey;
-  border-width: 0;
-  border-style: none;
-  border-color: grey;
-  border-color-active: black;
+  background-color-active: silver;
+  border-color-active: silver;
   class-active: active;
   class-disabled: disabled;
 }
@@ -128,9 +130,10 @@ There are two ways of declaring a button:
 #### With specific declarations
 
 ``` css 
-.my-button {
-  button-color: grey white white orange;
-  button-border: 2px orange white;
+.your-button {
+  button-color: skyblue white white;
+  button-background: white skyblue silver;
+  button-border: 4px skyblue skyblue silver;
   button-classes: active diabled;
 }
 ```
