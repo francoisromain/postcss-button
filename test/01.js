@@ -3,12 +3,11 @@ const tests = {
   button-color: skyblue white white;
   button-background: white skyblue silver;
   button-border: 4px skyblue skyblue silver;
-  button-classes: active diabled;
+  button-classes: active disabled;
 }
 `,
   output: `.your-button, .your-button:visited {
   display: inline-block;
-  margin: 0;
   cursor: pointer;
   text-decoration: none;
   border: none;
