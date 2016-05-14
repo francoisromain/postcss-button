@@ -1,7 +1,6 @@
 .my-button, .my-button:visited {
   padding: 1rem 2rem;
   display: inline-block;
-  margin: 0;
   cursor: pointer;
   text-decoration: none;
   border: none;
@@ -34,7 +33,6 @@
   padding: 1rem 2rem;
   border-radius: 1rem;
   display: inline-block;
-  margin: 0;
   cursor: pointer;
   text-decoration: none;
   border: none;

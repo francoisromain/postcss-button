@@ -1,6 +1,5 @@
 .your-button, .your-button:visited {
   display: inline-block;
-  margin: 0;
   cursor: pointer;
   text-decoration: none;
   border: none;
