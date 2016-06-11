@@ -3,9 +3,5 @@
   button-background: white skyblue silver;
   button-border: 4px skyblue skyblue silver;
   button-classes: active disabled;
-}
-
-.pad-s {
-  padding: 12px;
   padding: 0.75rem;
 }

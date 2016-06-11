@@ -15,7 +15,7 @@
 
 .my-button {
   button: default;
-  padding: 1rem 2rem;
+  padding: 0.75rem;
 }
 
 .your-button {
@@ -23,11 +23,6 @@
   button-background: white skyblue silver;
   button-border: 4px skyblue skyblue silver;
   button-classes: active diabled;
-  padding: 1rem 2rem;
-  border-radius: 1rem;
-}
-
-.pad-s {
-  padding: 12px;
   padding: 0.75rem;
+  border-radius: 1rem;
 }
