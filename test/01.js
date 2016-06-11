@@ -7,11 +7,9 @@ const tests = {
 }
 `,
   output: `.your-button, .your-button:visited {
-  display: inline-block;
   cursor: pointer;
   text-decoration: none;
   border: none;
-  padding: 0;
   color: skyblue;
   background-color: white;
   box-shadow: inset 0 0 0 4px skyblue;

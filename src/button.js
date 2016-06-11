@@ -115,11 +115,9 @@ export default (rule, options) => {
   }
   // default rule
   const declNew = [
-    postcss.decl({ prop: 'display', value: 'inline-block' }),
     postcss.decl({ prop: 'cursor', value: 'pointer' }),
     postcss.decl({ prop: 'text-decoration', value: 'none' }),
     postcss.decl({ prop: 'border', value: 'none' }),
-    postcss.decl({ prop: 'padding', value: 0 }),
   ];
 
   if (options.color) {
