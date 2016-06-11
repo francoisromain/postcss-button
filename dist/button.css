@@ -62,3 +62,7 @@
   background-color: white;
   box-shadow: inset 0 0 0 4px skyblue;
 }
+
+.pad-s {
+  padding: var(--base-unit-s);
+}

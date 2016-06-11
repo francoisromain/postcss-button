@@ -26,3 +26,7 @@
   padding: 1rem 2rem;
   border-radius: 1rem;
 }
+
+.pad-s {
+  padding: var(--base-unit-s);
+}

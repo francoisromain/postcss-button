@@ -7,11 +7,11 @@
   "repository": "francoisromain/postcss-button",
   "scripts": {
     "babel": "babel postcss-button/src --out-dir postcss-button/lib",
-    "css-button": "postcss --local-plugins -u ./postcss-button src/button.css -o dist/button.css",
+    "css": "postcss --local-plugins -u ./postcss-button src/button.css -o dist/button.css",
     "css-01": "postcss --local-plugins -u ./postcss-button -i test/src/01.css -o test/dist/01.css",
     "css-02": "postcss --local-plugins -u ./postcss-button -i test/src/02.css -o test/dist/02.css",
     "build": "npm run babel && npm run css",
-    "test": "npm run babel && npm run css-button && npm run css-01 && npm run css-02",
+    "test": "npm run babel && npm run css && npm run css-01 && npm run css-02",
     "watch": "onchange 'index.html' 'src/**/*.*' 'postcss-button/src/**/*.*' -- npm run build",
     "reload": "livereload",
     "start": "npm-run-all --parallel watch reload"
