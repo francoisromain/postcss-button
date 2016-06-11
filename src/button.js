@@ -113,11 +113,13 @@ export default (rule, options) => {
 
     ruleActive.moveAfter(rule);
   }
+
   // default rule
   const declNew = [
     postcss.decl({ prop: 'cursor', value: 'pointer' }),
     postcss.decl({ prop: 'text-decoration', value: 'none' }),
     postcss.decl({ prop: 'border', value: 'none' }),
+    postcss.decl({ prop: 'padding', value: '0' }),
   ];
 
   if (options.color) {
@@ -149,5 +151,5 @@ export default (rule, options) => {
 
   rule.selectors = ruleSelectors.concat(ruleSelectorsNew);
 
-  rule.append(declNew);
+  rule.prepend(declNew);
 };
