@@ -28,5 +28,6 @@
 }
 
 .pad-s {
-  padding: var(--base-unit-s);
+  padding: 12px;
+  padding: 0.75rem;
 }
