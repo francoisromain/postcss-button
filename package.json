@@ -20,21 +20,17 @@
     "babel-cli": "^6.10.1",
     "babel-preset-es2015": "^6.9.0",
     "livereload": "^0.4.1",
-    "npm-run-all": "^2.1.1",
+    "npm-run-all": "^2.3.0",
     "onchange": "^2.5.0",
     "postcss": "^5.0.21",
     "postcss-cli": "^2.5.2",
-    "postcss-cssnext": "^2.6.0",
+    "postcss-cssnext": "^2.7.0",
     "postcss-import": "^8.1.2",
-    "system.css": "^0.2.7",
     "prismjs": "^1.5.1"
   },
   "babel": {
     "presets": [
       "es2015"
     ]
-  },
-  "stylelint": {
-    "extends": "stylelint-config-standard"
   }
 }
