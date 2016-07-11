@@ -1,13 +1,13 @@
 {
   "name": "postcss-button",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "A PostCSS plugin to create buttons.",
   "keywords": [
     "postcss",
     "css",
     "postcss-plugin",
     "buttons",
-    "system.css"
+    "postcss-structure"
   ],
   "author": "Francois Romain <francoisromain@gmail.com>",
   "license": "MIT",
