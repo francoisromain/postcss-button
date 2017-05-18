@@ -17,6 +17,52 @@ A [PostCSS] plugin to create buttons.
 
 * * * 
 
+## Examples
+
+There are two ways to declare a button: 
+
+#### With an atRule declaration
+
+``` css
+@button big-button {
+  border-width: 1px;
+  color: orange;
+  background-color: white;
+  border-color: silver;
+  color-hover: white;
+  background-color-hover: orange;
+  border-color-hover: orange;
+  color-active: white;
+  background-color-active: silver;
+  border-color-active: silver;
+  class-active: active;
+  class-disabled: disabled;
+}
+```
+
+```css
+.my-button {
+  button: big-button;
+}
+```
+
+#### With specific declarations
+
+``` css 
+.your-button {
+  button-color: skyblue white white;
+  button-background: white skyblue silver;
+  button-border: 4px skyblue skyblue silver;
+  button-classes: active diabled;
+}
+```
+
+01: [input](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/src/01.css), [output](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/dist/01.css), [markup](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/01.html), [demo](https://francoisromain.github.io/postcss-button/test/01.html)
+
+02: [input](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/src/02.css), [output](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/dist/02.css), [markup](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/02.html), [demo](https://francoisromain.github.io/postcss-button/test/02.html)
+
+* * * 
+
 ## Installation
 
 Install the [npm package](https://www.npmjs.com/package/postcss-button):
@@ -95,50 +141,4 @@ See [PostCSS docs](https://github.com/postcss/postcss#usage) to setup with Gulp,
 - _disabled_ (optional): class name to apply the disabled styles.
 
 Missing declarations fallback to the _default_ settings. 
-
-* * * 
-
-## Examples
-
-There are two ways of declaring a button: 
-
-#### With an atRule declaration
-
-``` css
-@button big-button {
-  border-width: 1px;
-  color: orange;
-  background-color: white;
-  border-color: silver;
-  color-hover: white;
-  background-color-hover: orange;
-  border-color-hover: orange;
-  color-active: white;
-  background-color-active: silver;
-  border-color-active: silver;
-  class-active: active;
-  class-disabled: disabled;
-}
-```
-
-```css
-.my-button {
-  button: big-button;
-}
-```
-
-#### With specific declarations
-
-``` css 
-.your-button {
-  button-color: skyblue white white;
-  button-background: white skyblue silver;
-  button-border: 4px skyblue skyblue silver;
-  button-classes: active diabled;
-}
-```
-
-01: [input](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/src/01.css), [output](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/dist/01.css), [markup](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/01.html), [demo](https://francoisromain.github.io/postcss-button/test/01.html)
-
-02: [input](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/src/02.css), [output](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/dist/02.css), [markup](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/02.html), [demo](https://francoisromain.github.io/postcss-button/test/02.html)
 
