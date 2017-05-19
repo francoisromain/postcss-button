@@ -8,8 +8,8 @@
   "scripts": {
     "babel": "babel postcss-button/src --out-dir postcss-button/lib",
     "css": "postcss src/button.css -o dist/button.css",
-    "css-01": "postcss -i test/src/01.css -o test/dist/01.css",
-    "css-02": "postcss -i test/src/02.css -o test/dist/02.css",
+    "css-01": "postcss test/src/01.css -o test/dist/01.css",
+    "css-02": "postcss test/src/02.css -o test/dist/02.css",
     "build": "npm run babel && npm run css",
     "test": "npm run babel && npm run css && npm run css-01 && npm run css-02",
     "watch": "onchange 'index.html' 'src/**/*.*' 'postcss-button/src/**/*.*' -- npm run build",
