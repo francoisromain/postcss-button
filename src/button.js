@@ -36,7 +36,7 @@ export default (rule, options) => {
     value: `inset 0 0 0 ${options.borderWidth} ${options.borderColor}`,
   });
 
-  ruleDisabled.moveAfter(rule);
+  rule.after(ruleDisabled);
 
   // hover rule
   if (options.colorHover ||
@@ -73,7 +73,7 @@ export default (rule, options) => {
       });
     }
 
-    ruleHover.moveAfter(rule);
+    rule.after(ruleHover);
   }
 
   // active rule
@@ -111,7 +111,7 @@ export default (rule, options) => {
       });
     }
 
-    ruleActive.moveAfter(rule);
+    rule.after(ruleActive);
   }
 
   // default rule
