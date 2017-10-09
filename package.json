@@ -22,7 +22,7 @@
     "livereload": "^0.6.2",
     "npm-run-all": "^4.1.1",
     "onchange": "^3.2.1",
-    "postcss": "^6.0.12",
+    "postcss": "^6.0.13",
     "postcss-cli": "^4.1.1"
   },
   "babel": {

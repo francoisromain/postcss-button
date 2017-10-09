@@ -18,7 +18,7 @@
   background-color: orangered;
   box-shadow: inset 0 0 0 1px orangered;
 }
-.my-button:disabled, .my-button:disabled:active, .my-button:disabled:hover, .my-button.disabled, .my-button.disabled:active, .my-button.disabled:hover {
+.my-button:disabled,.my-button:disabled:active,.my-button:disabled:hover, .my-button.disabled:disabled,.my-button.disabled:disabled:active,.my-button.disabled:disabled:hover {
   opacity: 0.25;
   cursor: default;
   color: orangered;
