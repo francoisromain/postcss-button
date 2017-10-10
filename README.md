@@ -15,28 +15,28 @@ A [PostCSS] plugin to create buttons.
 [dep-img]:   https://david-dm.org/francoisromain/postcss-button.svg
 [dep]:       https://david-dm.org/francoisromain/postcss-button
 
-* * * 
+* * *
 
 ## Examples
 
-There are two ways to declare a button: 
+There are two ways to declare a button:
 
 #### With an atRule declaration
 
 ``` css
 @button big-button {
-  border-width: 1px;
-  color: orange;
-  background-color: white;
-  border-color: silver;
-  color-hover: white;
-  background-color-hover: orange;
-  border-color-hover: orange;
-  color-active: white;
-  background-color-active: silver;
-  border-color-active: silver;
-  class-active: active;
-  class-disabled: disabled;
+  button-border-width: 1px;
+  button-color: orange;
+  button-background-color: white;
+  button-border-color: silver;
+  button-color-hover: white;
+  button-background-color-hover: orange;
+  button-border-color-hover: orange;
+  button-color-active: white;
+  button-background-color-active: silver;
+  button-border-color-active: silver;
+  button-class-active: active;
+  button-class-disabled: disabled;
 }
 ```
 
@@ -48,7 +48,7 @@ There are two ways to declare a button:
 
 #### With specific declarations
 
-``` css 
+``` css
 .your-button {
   button-color: skyblue white white;
   button-background: white skyblue silver;
@@ -61,7 +61,7 @@ There are two ways to declare a button:
 
 02: [input](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/src/02.css), [output](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/dist/02.css), [markup](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/02.html), [demo](https://francoisromain.github.io/postcss-button/test/02.html)
 
-* * * 
+* * *
 
 ## Installation
 
@@ -75,9 +75,9 @@ Require the PostCSS plugin:
 postcss([ require('postcss-button') ])
 ```
 
-See [PostCSS docs](https://github.com/postcss/postcss#usage) to setup with Gulp, Grunt, Webpack, npm scripts… 
+See [PostCSS docs](https://github.com/postcss/postcss#usage) to setup with Gulp, Grunt, Webpack, npm scripts…
 
-* * * 
+* * *
 
 ## Configuration (optional)
 
@@ -97,7 +97,7 @@ See [PostCSS docs](https://github.com/postcss/postcss#usage) to setup with Gulp,
 
 - _name_ (optional): custom identifier. If no _name_ is provided, the _default_ settings are overwritten.
 
-* * * 
+* * *
 
 ## Usage
 
@@ -140,5 +140,5 @@ See [PostCSS docs](https://github.com/postcss/postcss#usage) to setup with Gulp,
 - _active_: class name to apply the active styles.
 - _disabled_ (optional): class name to apply the disabled styles.
 
-Missing declarations fallback to the _default_ settings. 
+Missing declarations fallback to the _default_ settings.
 
