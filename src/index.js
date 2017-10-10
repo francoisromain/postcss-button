@@ -100,6 +100,13 @@ module.exports = postcss.plugin('postcss-button', (opts) => {
     },
   };
 
+  const buttonMake = (node) => {
+    if (options.tmp && !node.next()) {
+      button(node.parent, options.tmp);
+      delete options.tmp;
+    }
+  };
+
   Object.assign(options.default, opts);
 
   return (css) => {
@@ -110,24 +117,18 @@ module.exports = postcss.plugin('postcss-button', (opts) => {
 
         Object.assign(options[name], atruleOptions(node, options));
         node.remove();
-      } else if (
-        node.parent.type === 'rule' &&
-        node.type === 'decl' &&
-        node.prop.match(/^button/)
-      ) {
-        options.tmp = options.tmp || options.default;
+      } else if (node.parent.type === 'rule' && node.type === 'decl') {
+        if (node.prop.match(/^button/)) {
+          options.tmp = options.tmp || options.default;
 
-        Object.assign(options.tmp, propOption(node, options[node.value]));
+          Object.assign(options.tmp, propOption(node, options[node.value]));
 
-        if (options.tmp && !node.next()) {
-          button(node.parent, options.tmp);
-          delete options.tmp;
+          buttonMake(node);
+
+          node.remove();
+        } else {
+          buttonMake(node);
         }
-
-        node.remove();
-      } else if (node.parent.type === 'rule' && options.tmp && !node.next()) {
-        button(node.parent, options.tmp);
-        delete options.tmp;
       }
     });
   };

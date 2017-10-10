@@ -1,4 +1,4 @@
-0.1.3
+0.2.0
 - feat: option to use shorthand form inside atrules, and longhand form inside rules.
 
 0.1.11
