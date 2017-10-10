@@ -1,0 +1,23 @@
+@button chuel {
+  button-color: green white white;
+  button-background: white green silver;
+  button-border: 4px green green silver;
+  button-classes: active disabled;
+  padding: 0.25rem;
+}
+
+@button mehj {
+  button: chuel;
+  button-background-color-hover: orangered;
+  padding: 0.30rem;
+}
+
+.my-button {
+  button: mehj;
+  padding: 0.75rem;
+}
+
+.fake-button {
+  button-background-color-hover: blue;
+  padding: 0.75rem;
+}

@@ -12,8 +12,10 @@
     "css-02": "postcss test/src/02.css -o test/dist/02.css",
     "css-03": "postcss test/src/03.css -o test/dist/03.css",
     "css-04": "postcss test/src/04.css -o test/dist/04.css",
+    "css-05": "postcss test/src/05.css -o test/dist/05.css",
+    "css-06": "postcss test/src/06.css -o test/dist/06.css",
     "build": "npm run babel && npm run css && npm run test",
-    "test": "npm run css-01 && npm run css-02 && npm run css-03 && npm run css-04",
+    "test": "npm run css-01 && npm run css-02 && npm run css-03 && npm run css-04 && npm run css-05 && npm run css-06",
     "watch": "onchange 'index.html' 'src/**/*.*' 'postcss-button/src/**/*.*' -- npm run build",
     "reload": "livereload",
     "start": "npm-run-all --parallel watch reload"
