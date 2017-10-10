@@ -1,0 +1,12 @@
+@button toust {
+  button-color: yellow white white;
+  button-background: white yellow silver;
+  button-border: 4px yellow yellow silver;
+  button-classes: active disabled;
+  padding: 0.75rem;
+}
+
+.my-button {
+  button: toust;
+  padding: 0.75rem;
+}

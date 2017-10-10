@@ -18,7 +18,7 @@
   background-color: silver;
   box-shadow: inset 0 0 0 4px silver;
 }
-.your-button:disabled,.your-button:disabled:active,.your-button:disabled:hover, .your-button.disabled:disabled,.your-button.disabled:disabled:active,.your-button.disabled:disabled:hover {
+.your-button:disabled, .your-button:disabled:active, .your-button:disabled:hover, .your-button.disabled, .your-button.disabled:active, .your-button.disabled:hover {
   opacity: 0.25;
   cursor: default;
   color: skyblue;

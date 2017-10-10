@@ -1,0 +1,18 @@
+@button chuel {
+  button-color: brown white white;
+  button-background: white brown silver;
+  button-border: 4px brown brown silver;
+  button-classes: active disabled;
+  padding: 0.25rem;
+}
+
+@button mehj {
+  button: chuel;
+  button-color: pink white white;
+  padding: 0.30rem;
+}
+
+.my-button {
+  button: mehj;
+  padding: 0.75rem;
+}
