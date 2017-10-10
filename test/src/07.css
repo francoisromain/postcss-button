@@ -1,0 +1,12 @@
+@button yarp {
+  button-color: green white white;
+  button-background: white green silver;
+  button-border: 4px green green silver;
+  button-classes: active disabled;
+  padding: 0.25rem;
+}
+
+.test .my-button {
+  button: yarp;
+  padding: 0.75rem;
+}
