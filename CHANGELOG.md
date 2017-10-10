@@ -1,3 +1,6 @@
+0.2.7
+- feat: if there is a selector chain, the active, hover and disabled pseudo classes are applied to the first element in the chain. See test 07.
+
 0.2.5
 - fix: refactor.
 
