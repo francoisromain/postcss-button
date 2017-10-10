@@ -1,3 +1,6 @@
+0.2.5
+- fix: refactor.
+
 0.2.3
 - fix: bug that modify default settings.
 

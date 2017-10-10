@@ -4,7 +4,7 @@ const tests = {
   padding: 0.75rem;
 }
 `,
-  output: `.fake-button, .fake-button:visited {
+  output: `.fake-button,.fake-button:visited {
   cursor: pointer;
   text-decoration: none;
   border: none;
@@ -13,15 +13,15 @@ const tests = {
   background-color: white;
   padding: 0.75rem;
 }
-.fake-button:active, .fake-button.active {
+.fake-button:active,.fake-button.active {
   color: white;
   background-color: red;
 }
-.fake-button:hover, .fake-button.active:hover {
+.fake-button:hover,.fake-button.active:hover {
   color: white;
   background-color: orangered;
 }
-.fake-button:disabled, .fake-button:disabled:active, .fake-button:disabled:hover, .fake-button.disabled, .fake-button.disabled:active, .fake-button.disabled:hover {
+.fake-button:disabled,.fake-button:disabled:active,.fake-button:disabled:hover,.fake-button.disabled,.fake-button.disabled:active,.fake-button.disabled:hover {
   opacity: 0.25;
   cursor: default;
   color: grey;

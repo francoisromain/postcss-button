@@ -19,7 +19,7 @@ const tests = {
   padding: 0.75rem;
 }
 `,
-  output: `.my-button, .my-button:visited {
+  output: `.my-button,.my-button:visited {
   cursor: pointer;
   text-decoration: none;
   border: none;
@@ -28,15 +28,15 @@ const tests = {
   background-color: #ffffff;
   padding: 0.75rem;
 }
-.my-button:active, .my-button.active {
+.my-button:active,.my-button.active {
   color: whitesmoke;
   background-color: silver;
 }
-.my-button:hover, .my-button.active:hover {
+.my-button:hover,.my-button.active:hover {
   color: whitesmoke;
   background-color: orangered;
 }
-.my-button:disabled, .my-button:disabled:active, .my-button:disabled:hover, .my-button.disabled, .my-button.disabled:active, .my-button.disabled:hover {
+.my-button:disabled,.my-button:disabled:active,.my-button:disabled:hover,.my-button.disabled,.my-button.disabled:active,.my-button.disabled:hover {
   opacity: 0.25;
   cursor: default;
   color: orangered;
