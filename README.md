@@ -83,15 +83,15 @@ See [PostCSS docs](https://github.com/postcss/postcss#usage) to setup with Gulp,
 
 ``` css
 @button ([name]) {
-  color: grey;
-  background-color: white;
-  color-active: white;
-  background-color-active: grey;
-  border-width: 0;
-  border-color: grey;
-  border-color-active: black;
-  class-active: active;
-  class-disabled: disabled;
+  button-color: grey;
+  button-background-color: white;
+  button-color-active: white;
+  button-background-color-active: grey;
+  button-border-width: 0;
+  button-border-color: grey;
+  button-border-color-active: black;
+  button-class-active: active;
+  button-class-disabled: disabled;
 }
 ```
 

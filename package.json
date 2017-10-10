@@ -1,6 +1,6 @@
 {
   "name": "postcss-button",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "A PostCSS plugin to create buttons.",
   "keywords": [
     "postcss",
