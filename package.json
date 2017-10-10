@@ -1,6 +1,6 @@
 {
   "name": "postcss-button",
-  "version": "0.1.21",
+  "version": "0.1.3",
   "description": "A PostCSS plugin to create buttons.",
   "keywords": [
     "postcss",
@@ -20,7 +20,8 @@
   },
   "homepage": "http://francoisromain.github.io/postcss-button/",
   "dependencies": {
-    "postcss": "^6.0.13"
+    "postcss": "^6.0.13",
+    "ava": "^0.22.0"
   },
   "scripts": {
     "build": "babel src --out-dir lib",
@@ -28,7 +29,6 @@
   },
   "main": "./lib/index.js",
   "devDependencies": {
-    "ava": "^0.22.0",
     "babel-cli": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-register": "^6.26.0",

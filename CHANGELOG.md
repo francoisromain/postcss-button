@@ -1,3 +1,6 @@
+0.1.3
+- feat: option to use shorthand form inside atrules, and longhand form inside rules.
+
 0.1.11
 - fix: revert to display: inline-block
 
