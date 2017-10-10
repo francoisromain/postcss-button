@@ -1,3 +1,6 @@
+0.2.3
+- fix: bug that modify default settings.
+
 0.2.0
 - feat: option to use shorthand form inside atrules, and longhand form inside rules.
 

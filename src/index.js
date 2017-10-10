@@ -119,12 +119,9 @@ module.exports = postcss.plugin('postcss-button', (opts) => {
         node.remove();
       } else if (node.parent.type === 'rule' && node.type === 'decl') {
         if (node.prop.match(/^button/)) {
-          options.tmp = options.tmp || options.default;
-
+          options.tmp = options.tmp || Object.assign({}, options.default);
           Object.assign(options.tmp, propOption(node, options[node.value]));
-
           buttonMake(node);
-
           node.remove();
         } else {
           buttonMake(node);
