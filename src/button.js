@@ -81,33 +81,23 @@ const ruleActive = (ruleSelectors, options) => {
 };
 
 const declDefault = (options) => {
-  const decl = [
+  const d1 = [
     postcss.decl({ prop: 'cursor', value: 'pointer' }),
     postcss.decl({ prop: 'text-decoration', value: 'none' }),
     postcss.decl({ prop: 'border', value: 'none' }),
     postcss.decl({ prop: 'display', value: 'inline-block' }),
   ];
+  const d2 = options.color ? [postcss.decl({ prop: 'color', value: options.color })] : [];
+  const d3 = options.backgroundColor ? [postcss.decl({ prop: 'background-color', value: options.backgroundColor })] : [];
+  const d4 = options.borderWidth && options.borderWidth !== '0' ? [postcss.decl({
+    prop: 'box-shadow',
+    value: `inset 0 0 0 ${options.borderWidth} ${options.borderColor}`,
+  })] : [];
 
-  if (options.color) {
-    decl.push(postcss.decl({ prop: 'color', value: options.color }));
-  }
-
-  if (options.backgroundColor) {
-    decl.push(postcss.decl({ prop: 'background-color', value: options.backgroundColor }));
-  }
-
-  if (options.borderWidth && options.borderWidth !== '0') {
-    decl.push(postcss.decl({
-      prop: 'box-shadow',
-      value: `inset 0 0 0 ${options.borderWidth} ${options.borderColor}`,
-    }));
-  }
-
-  return decl;
+  return [...d1, ...d2, ...d3, ...d4];
 };
 
 export default (rule, options) => {
-
   rule.after(ruleDisabled(rule.selectors, options));
 
   if (options.colorHover || options.backgroundColorHover || options.borderColorHover) {
@@ -119,6 +109,5 @@ export default (rule, options) => {
   }
 
   rule.selectors = rule.selectors.map(selector => `${selector},${selector}:visited`);
-
   rule.prepend(declDefault(options));
 };
