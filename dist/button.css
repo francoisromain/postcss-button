@@ -3,27 +3,31 @@
   text-decoration: none;
   border: none;
   display: inline-block;
-  color: grey;
+  color: orangered;
   background-color: white;
-  padding: 0.75rem;
+  box-shadow: inset 0 0 0 1px silver;
+  padding: 1.5rem;
+  font: inherit;
 }
 
 .my-button:active,.my-button.active {
-  color: white;
-  background-color: red;
+  color: whitesmoke;
+  background-color: silver;
+  box-shadow: inset 0 0 0 1px silver;
 }
 
 .my-button:hover,.my-button.active:hover {
-  color: white;
-  background-color: grey;
+  color: whitesmoke;
+  background-color: orangered;
+  box-shadow: inset 0 0 0 1px orangered;
 }
 
 .my-button:disabled,.my-button:disabled:active,.my-button:disabled:hover,.my-button.disabled,.my-button.disabled:active,.my-button.disabled:hover {
   opacity: 0.25;
   cursor: default;
-  color: grey;
+  color: orangered;
   background-color: white;
-  box-shadow: inset 0 0 0 0 grey;
+  box-shadow: inset 0 0 0 1px silver;
 }
 
 .your-button,.your-button:visited {
@@ -34,8 +38,9 @@
   color: skyblue;
   background-color: white;
   box-shadow: inset 0 0 0 4px skyblue;
-  padding: 0.75rem;
+  padding: 1.5rem;
   border-radius: 1rem;
+  font: inherit;
 }
 
 .your-button:active,.your-button.active {

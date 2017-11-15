@@ -1,21 +1,22 @@
 @button {
-  border-width: 1px;
-  color: orangered;
-  background-color: white;
-  border-color: silver;
-  color-hover: whitesmoke;
-  background-color-hover: orangered;
-  border-color-hover: orangered;
-  color-active: whitesmoke;
-  background-color-active: silver;
-  border-color-active: silver;
-  class-active: active;
-  class-disabled: disabled;
+  button-border-width: 1px;
+  button-color: orangered;
+  button-background-color: white;
+  button-border-color: silver;
+  button-color-hover: whitesmoke;
+  button-background-color-hover: orangered;
+  button-border-color-hover: orangered;
+  button-color-active: whitesmoke;
+  button-background-color-active: silver;
+  button-border-color-active: silver;
+  button-class-active: active;
+  button-class-disabled: disabled;
 }
 
 .my-button {
   button: default;
-  padding: 0.75rem;
+  padding: 1.5rem;
+  font: inherit;
 }
 
 .your-button {
@@ -23,6 +24,7 @@
   button-background: white skyblue silver;
   button-border: 4px skyblue skyblue silver;
   button-class: active disabled;
-  padding: 0.75rem;
+  padding: 1.5rem;
   border-radius: 1rem;
+  font: inherit;
 }
