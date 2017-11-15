@@ -69,6 +69,8 @@ const propOption = (decl, optionsCurrent) => {
     if (value[1]) {
       option.classDisabled = value[1];
     }
+  } else if (decl.prop.match(/^button-parent$/)) {
+    option.parent = value[0] === "true";
   }
 
   return option;
@@ -97,6 +99,7 @@ module.exports = postcss.plugin('postcss-button', (opts) => {
       borderColorHover: 'grey',
       classActive: 'active',
       classDisabled: 'disabled',
+      parent: false,
     },
   };
 

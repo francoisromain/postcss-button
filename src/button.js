@@ -1,25 +1,27 @@
 import postcss from 'postcss';
 
-const selectorApply = (selector, modifiers) => {
-  const apply = (sel, modifier) => {
+const selectorApply = (selector, modifiers, parent) => {
+  const apply = (sel, modifier, parent) => {
     const sels = sel.split(' ');
-    return sels.length > 1 ? `${sels.shift()}${modifier} ${sels.join(' ')}` : `${sels[0]}${modifier}`;
+    const buttonSel = sels[sels.length - 1];
+    return sels.length > 1 && !!parent ? `${sels.shift()}${modifier} ${sels.join(' ')}` : `${buttonSel}${modifier}`;
   };
   return Array.isArray(modifiers)
-    ? modifiers.map(modifier => apply(selector, modifier))
-    : apply(selector, modifiers);
+    ? modifiers.map(modifier => apply(selector, modifier, parent))
+    : apply(selector, modifiers, parent);
 };
 
 const ruleDisabled = (ruleSelectors, options) => {
   const rule = postcss.rule();
   rule.selectors = ruleSelectors.map((selector) => {
-    const r1 = selectorApply(selector, [':disabled', ':disabled:active', ':disabled:hover']);
+    const r1 = selectorApply(selector, [':disabled', ':disabled:active', ':disabled:hover'], options.parent);
     const r2 = options.classDisabled
       ? selectorApply(selector, [
-        `.${options.classDisabled}`,
-        `.${options.classDisabled}:active`,
-        `.${options.classDisabled}:hover`,
-      ])
+          `.${options.classDisabled}`,
+          `.${options.classDisabled}:active`,
+          `.${options.classDisabled}:hover`,
+        ],
+        options.parent)
       : [];
     return [...r1, ...r2];
   });
@@ -38,8 +40,8 @@ const ruleDisabled = (ruleSelectors, options) => {
 const ruleHover = (ruleSelectors, options) => {
   const rule = postcss.rule();
   rule.selectors = ruleSelectors.map((selector) => {
-    const r1 = selectorApply(selector, ':hover');
-    const r2 = options.classActive ? selectorApply(selector, `.${options.classActive}:hover`) : '';
+    const r1 = selectorApply(selector, ':hover', options.parent);
+    const r2 = options.classActive ? selectorApply(selector, `.${options.classActive}:hover`, options.parent) : '';
     return [r1, r2];
   });
 
@@ -63,8 +65,8 @@ const ruleHover = (ruleSelectors, options) => {
 const ruleActive = (ruleSelectors, options) => {
   const rule = postcss.rule();
   rule.selectors = ruleSelectors.map((selector) => {
-    const r1 = selectorApply(selector, ':active');
-    const r2 = options.classActive ? selectorApply(selector, `.${options.classActive}`) : '';
+    const r1 = selectorApply(selector, ':active', options.parent);
+    const r2 = options.classActive ? selectorApply(selector, `.${options.classActive}`, options.parent) : '';
     return [r1, r2];
   });
 
@@ -121,6 +123,6 @@ export default (rule, options) => {
     rule.after(ruleActive(rule.selectors, options));
   }
 
-  rule.selectors = rule.selectors.map(selector => `${selector},${selectorApply(selector, ':visited')}`);
+  rule.selectors = rule.selectors.map(selector => `${selector},${selectorApply(selector, ':visited', options.parent)}`);
   rule.prepend(declDefault(options));
 };

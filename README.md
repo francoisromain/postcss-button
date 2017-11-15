@@ -53,7 +53,7 @@ There are two ways to declare a button:
   button-color: skyblue white white;
   button-background: white skyblue silver;
   button-border: 4px skyblue skyblue silver;
-  button-classes: active diabled;
+  button-classes: active disabled;
 }
 ```
 
@@ -92,6 +92,7 @@ See [PostCSS docs](https://github.com/postcss/postcss#usage) to setup with Gulp,
   button-border-color-active: black;
   button-class-active: active;
   button-class-disabled: disabled;
+  button-parent: false;
 }
 ```
 
@@ -133,6 +134,12 @@ See [PostCSS docs](https://github.com/postcss/postcss#usage) to setup with Gulp,
 - _border-color-active_ (optional): color of the border when active.
 - _border-color-hover (optional): color of the border on mouseover.
 
+### Parent
+
+`button-parent: false (default) | true;`
+
+It applied pseudo classes to parent elements in a selector chain.
+
 ### Classes
 
 `button-classes: [active] ([disabled]);`
@@ -141,4 +148,3 @@ See [PostCSS docs](https://github.com/postcss/postcss#usage) to setup with Gulp,
 - _disabled_ (optional): class name to apply the disabled styles.
 
 Missing declarations fallback to the _default_ settings.
-
