@@ -3,7 +3,7 @@ import button from './button';
 
 const propOption = (decl, optionsCurrent) => {
   const option = {};
-  const value = decl.value.split(/\s+(?![^\[]*\]|[^(]*\)|[^\{]*})/);
+  const value = decl.value.split(/\s+(?![^[]*\]|[^(]*\)|[^{]*})/);
 
   if (decl.prop.match(/^button$/)) {
     Object.assign(option, optionsCurrent);
@@ -29,6 +29,8 @@ const propOption = (decl, optionsCurrent) => {
     option.classActive = value[0];
   } else if (decl.prop.match(/^button-class-disabled$/)) {
     option.classDisabled = value[0];
+  } else if (decl.prop.match(/^button-class-parent$/)) {
+    option.classParent = !!value[0] && value[0] !== 'false';
   } else if (decl.prop.match(/^button-color$/)) {
     option.color = value[0];
 
@@ -69,6 +71,10 @@ const propOption = (decl, optionsCurrent) => {
     if (value[1]) {
       option.classDisabled = value[1];
     }
+
+    if (value[2]) {
+      option.classParent = !!value[2] && value[2] !== 'false';
+    }
   }
 
   return option;
@@ -87,16 +93,17 @@ module.exports = postcss.plugin('postcss-button', (opts) => {
     default: {
       borderWidth: '0',
       color: 'grey',
-      backgroundColor: 'white',
-      borderColor: 'grey',
       colorActive: 'white',
-      backgroundColorActive: 'red',
-      borderColorActive: 'red',
       colorHover: 'white',
+      backgroundColor: 'white',
+      backgroundColorActive: 'red',
       backgroundColorHover: 'grey',
+      borderColor: 'grey',
+      borderColorActive: 'red',
       borderColorHover: 'grey',
       classActive: 'active',
       classDisabled: 'disabled',
+      classParent: false,
     },
   };
 

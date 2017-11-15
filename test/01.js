@@ -3,7 +3,7 @@ const tests = {
   button-color: skyblue white white;
   button-background: white skyblue silver;
   button-border: 4px skyblue skyblue silver;
-  button-classes: active disabled;
+  button-class: active disabled false;
 }
 `,
   output: `.your-button,.your-button:visited {

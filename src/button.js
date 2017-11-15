@@ -1,10 +1,13 @@
 import postcss from 'postcss';
 
-const selectorApply = (selector, modifiers) => {
+const selectorApply = (selector, modifiers, applyToParent) => {
   const apply = (sel, modifier) => {
     const sels = sel.split(' ');
-    return sels.length > 1 ? `${sels.shift()}${modifier} ${sels.join(' ')}` : `${sels[0]}${modifier}`;
+    return sels.length > 1 && applyToParent
+      ? `${sels.shift()}${modifier} ${sels.join(' ')}`
+      : `${sels.join(' ')}${modifier}`;
   };
+
   return Array.isArray(modifiers)
     ? modifiers.map(modifier => apply(selector, modifier))
     : apply(selector, modifiers);
@@ -13,15 +16,24 @@ const selectorApply = (selector, modifiers) => {
 const ruleDisabled = (ruleSelectors, options) => {
   const rule = postcss.rule();
   rule.selectors = ruleSelectors.map((selector) => {
-    const r1 = selectorApply(selector, [':disabled', ':disabled:active', ':disabled:hover']);
-    const r2 = options.classDisabled
-      ? selectorApply(selector, [
-        `.${options.classDisabled}`,
-        `.${options.classDisabled}:active`,
-        `.${options.classDisabled}:hover`,
-      ])
+    const selectorDefault = selectorApply(
+      selector,
+      [':disabled', ':disabled:active', ':disabled:hover'],
+      options.classParent,
+    );
+    const selectorClass = options.classDisabled
+      ? selectorApply(
+        selector,
+        [
+          `.${options.classDisabled}`,
+          `.${options.classDisabled}:active`,
+          `.${options.classDisabled}:hover`,
+        ],
+        options.classParent,
+      )
       : [];
-    return [...r1, ...r2];
+
+    return [...selectorDefault, ...selectorClass];
   });
 
   rule.append({ prop: 'opacity', value: '0.25' });
@@ -32,15 +44,19 @@ const ruleDisabled = (ruleSelectors, options) => {
     prop: 'box-shadow',
     value: `inset 0 0 0 ${options.borderWidth} ${options.borderColor}`,
   });
+
   return rule;
 };
 
 const ruleHover = (ruleSelectors, options) => {
   const rule = postcss.rule();
   rule.selectors = ruleSelectors.map((selector) => {
-    const r1 = selectorApply(selector, ':hover');
-    const r2 = options.classActive ? selectorApply(selector, `.${options.classActive}:hover`) : '';
-    return [r1, r2];
+    const selectorDefault = selectorApply(selector, ':hover', options.classParent);
+    const selectorClass = options.classActive
+      ? selectorApply(selector, `.${options.classActive}:hover`, options.classParent)
+      : '';
+
+    return [selectorDefault, selectorClass];
   });
 
   if (options.colorHover) {
@@ -57,15 +73,19 @@ const ruleHover = (ruleSelectors, options) => {
       value: `inset 0 0 0 ${options.borderWidth} ${options.borderColorHover}`,
     });
   }
+
   return rule;
 };
 
 const ruleActive = (ruleSelectors, options) => {
   const rule = postcss.rule();
   rule.selectors = ruleSelectors.map((selector) => {
-    const r1 = selectorApply(selector, ':active');
-    const r2 = options.classActive ? selectorApply(selector, `.${options.classActive}`) : '';
-    return [r1, r2];
+    const selectorDefault = selectorApply(selector, ':active', options.classParent);
+    const selectorClass = options.classActive
+      ? selectorApply(selector, `.${options.classActive}`, options.classParent)
+      : '';
+
+    return [selectorDefault, selectorClass];
   });
 
   if (options.colorActive) {
@@ -121,6 +141,6 @@ export default (rule, options) => {
     rule.after(ruleActive(rule.selectors, options));
   }
 
-  rule.selectors = rule.selectors.map(selector => `${selector},${selectorApply(selector, ':visited')}`);
+  rule.selectors = rule.selectors.map(selector => `${selector},${selectorApply(selector, ':visited', options.classParent)}`);
   rule.prepend(declDefault(options));
 };

@@ -3,7 +3,7 @@ const tests = {
   button-color: yellow white white;
   button-background: white yellow silver;
   button-border: 4px yellow yellow silver;
-  button-classes: active disabled;
+  button-class: active disabled;
   padding: 0.75rem;
 }
 

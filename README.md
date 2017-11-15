@@ -17,45 +17,69 @@ A [PostCSS] plugin to create buttons.
 
 * * *
 
+This plugin handles a lot of repetetive css code necessary to create clean buttons. It also uses `box-shadow` to create borders which respect the vertical rythm.
+
+* * *
+
 ## Examples
 
 There are two ways to declare a button:
 
-#### With an atRule declaration
+#### With specific declarations
 
 ``` css
-@button big-button {
-  button-border-width: 1px;
+.my-button-class {
+  /* short-hand syntax example */
+
+  /* color: default | active | hover */
+  button-color: skyblue white white;
+
+  /* background-color: default | active | hover */
+  button-background: white skyblue silver;
+
+  /* border: size | default | active | hover */
+  button-border: 4px skyblue skyblue silver;
+
+  /* classes: active class name | disabled class name | apply classes and pseudo classes to the parent selector */
+  button-class: active disabled true;
+}
+```
+
+#### With a configuration
+
+``` css
+@button my-button-name {
+  /* detailed-syntax example */
+
+  /* color */
   button-color: orange;
-  button-background-color: white;
-  button-border-color: silver;
-  button-color-hover: white;
-  button-background-color-hover: orange;
-  button-border-color-hover: orange;
   button-color-active: white;
+  button-color-hover: white;
+
+  /* background-color */
+  button-background-color: white;
   button-background-color-active: silver;
+  button-background-color-hover: orange;
+
+  /* border */
+  button-border-width: 1px;
+  button-border-color: silver;
   button-border-color-active: silver;
+  button-border-color-hover: orange;
+
+  /* classes */
   button-class-active: active;
   button-class-disabled: disabled;
+  button-class-parent: true;
 }
 ```
 
 ```css
-.my-button {
-  button: big-button;
+.my-button-class {
+  button: my-button-name;
 }
 ```
 
-#### With specific declarations
-
-``` css
-.your-button {
-  button-color: skyblue white white;
-  button-background: white skyblue silver;
-  button-border: 4px skyblue skyblue silver;
-  button-classes: active diabled;
-}
-```
 
 01: [input](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/src/01.css), [output](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/dist/01.css), [markup](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/01.html), [demo](https://francoisromain.github.io/postcss-button/test/01.html)
 
@@ -79,66 +103,106 @@ See [PostCSS docs](https://github.com/postcss/postcss#usage) to setup with Gulp,
 
 * * *
 
-## Configuration (optional)
+## Usage
+
+#### With a configuration (optional)
 
 ``` css
 @button ([name]) {
-  button-color: grey;
-  button-background-color: white;
-  button-color-active: white;
-  button-background-color-active: grey;
-  button-border-width: 0;
-  button-border-color: grey;
-  button-border-color-active: black;
-  button-class-active: active;
-  button-class-disabled: disabled;
+  [button-rules…]
+}
+```
+
+``` css
+.my-class {
+  button: [name];
 }
 ```
 
 - _name_ (optional): custom identifier. If no _name_ is provided, the _default_ settings are overwritten.
 
-* * *
+#### Without a configuration
 
-## Usage
+``` css
+.my-class {
+  [button-rules…]
+}
+```
 
-### Name
+## Css rules
 
-`button: [name];`
+#### Color
 
-- _name_: string identifier referring to a settings atRule. Set to _default_ to use default settings.
+`button-color-active: [color];`
 
-### Color
+- _color_: button text color when active.
 
-`button-color: [color] ([color-active]) ([color-hover]);`
+`button-color-hover: [color];`
 
-- _color_: button text color.
-- _color-active_ (optional): button text color when active.
-- _color-hover_ (optional): button text color on mouseover.
+- _color_: button text color on hover.
 
+``` css
+/* short-hand syntax */
+button-color: [color] ([color-active]) ([color-hover]);
+```
 
-### Background color
+#### Background color
 
-`button-background: [background-color] ([background-color-active]) ([background-color-hover]);`
+`button-background-active: [color];`
 
-- _background-color_ (optional): button background color.
-- _background-color-active_ (optional): button background color when active.
-- _background-color-hover_ (optional): button background color on mouseover.
+- _color_: button background color when active.
+
+`button-background-hover: [color];`
+
+- _color_: button background color on hover.
+
+``` css
+/* short-hand syntax */
+button-background: [background-color] ([background-color-active]) ([background-color-hover]);
+```
 
 ### Border
 
-`button-border: [width] ([border-color]) ([border-color-active]) ([border-color-hover]);`
+`button-border-width: [width];`
 
-- _width_: width of the border.
-- _border-color_ (optional): color of the border.
-- _border-color-active_ (optional): color of the border when active.
-- _border-color-hover (optional): color of the border on mouseover.
+- _width_: width and units of the border.
+
+`button-border-color: [color];`
+
+- _color_: color of the border.
+
+`button-border-color-active: [color];`
+
+- _color_: color of the border when active.
+
+`button-border-color-hover: [color];`
+
+- _color_: color of the border on hover.
+
+
+``` css
+/* short-hand syntax */
+button-border: [width] ([border-color]) ([border-color-active]) ([border-color-hover]);
+```
 
 ### Classes
 
-`button-classes: [active] ([disabled]);`
+`button-class-active: [class-name];`
 
-- _active_: class name to apply the active styles.
-- _disabled_ (optional): class name to apply the disabled styles.
+- _class-name_: class name to apply the active styles.
+
+`button-class-disbaled: [class-name];`
+
+- _class-name_: class name to apply the disabled styles.
+
+`button-class-parent: [boolean];`
+
+- _boolean_: apply the classes and pseudo element to the parent element in the selector chain if it exists (default to false). (See test 07 and 08)
+
+``` css
+/* short-hand syntax */
+button-class: [active] ([disabled]) ([parent]);`
+```
 
 Missing declarations fallback to the _default_ settings.
 
