@@ -1,6 +1,16 @@
-.container {
-    &__link {
-      button-color: skyblue white white;
-    }
-  margin: 5rem;
+.parent .link-one {
+  padding: 2rem;
+  button-color: skyblue white white;
+}
+
+.parent .link-two {
+  padding: 2rem;
+  button-color: skyblue white white;
+  button-class-parent: false;
+}
+
+.parent .link-three {
+  padding: 2rem;
+  button-color: skyblue white white;
+  button-class-parent: true;
 }

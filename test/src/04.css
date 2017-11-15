@@ -2,7 +2,7 @@
   button-color: brown white white;
   button-background: white brown silver;
   button-border: 4px brown brown silver;
-  button-classes: active disabled;
+  button-class: active disabled;
   padding: 0.25rem;
 }
 

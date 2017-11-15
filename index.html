@@ -21,25 +21,35 @@
     <hr />
   </header>
   <main class="container" role="main">
-    <h2 id="settings">Buttons (with an atRule declaration)</h2>
+    <h2 id="settings">Buttons (with a configuration)</h2>
     <div class=row-blobs>
       <div class="blob-code">
         <h4>Input</h4>
         <pre><code class="language-css">/* Define global settings */
 
 @button test {
-  button-border-width: 1px;
+  /* Detailed syntax example */
+
+  /* Color */
   button-color: orangered;
-  button-background-color: white;
-  button-border-color: silver;
-  button-color-hover: whitesmoke;
-  button-background-color-hover: orangered;
-  button-border-color-hover: orangered;
   button-color-active: whitesmoke;
+  button-color-hover: whitesmoke;
+
+  /* Background color */
+  button-background-color: white;
   button-background-color-active: silver;
+  button-background-color-hover: orangered;
+
+  /* Border */
+  button-border-width: 1px;
+  button-border-color: silver;
   button-border-color-active: silver;
+  button-border-color-hover: orangered;
+
+  /* Classes */
   button-class-active: active;
   button-class-disabled: disabled;
+  button-class-parent: false;
 }
 
 .my-button {
@@ -106,9 +116,18 @@
         <pre><code class="language-css">/* color: default active hover */
 
 .your-button {
+  /* Short-hand syntax example */
+
+  /* color: default | active | hover */
   button-color: skyblue white white;
+
+  /* background-color: default | active | hover */
   button-background: white skyblue silver;
+
+  /* border: size | default | active | hover */
   button-border: 4px skyblue skyblue silver;
+
+  /* classes: active class name | disabled class name | apply classes and pseudo classes to the parent selector */
   button-classes: active disabled;
 }</code></pre>
 

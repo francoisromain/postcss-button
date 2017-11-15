@@ -1,4 +1,4 @@
-.my-button, .my-button:visited {
+.my-button,.my-button:visited {
   cursor: pointer;
   text-decoration: none;
   border: none;
@@ -9,19 +9,19 @@
   padding: 0.75rem;
 }
 
-.my-button:active, .my-button.active {
+.my-button:active,.my-button.active {
   color: white;
   background-color: red;
   box-shadow: inset 0 0 0 1px red;
 }
 
-.my-button:hover, .my-button.active:hover {
+.my-button:hover,.my-button.active:hover {
   color: white;
   background-color: grey;
   box-shadow: inset 0 0 0 1px grey;
 }
 
-.my-button:disabled, .my-button:disabled:active, .my-button:disabled:hover, .my-button.disabled, .my-button.disabled:active, .my-button.disabled:hover {
+.my-button:disabled,.my-button:disabled:active,.my-button:disabled:hover,.my-button.disabled,.my-button.disabled:active,.my-button.disabled:hover {
   opacity: 0.25;
   cursor: default;
   color: grey;
@@ -29,7 +29,7 @@
   box-shadow: inset 0 0 0 1px grey;
 }
 
-.your-button, .your-button:visited {
+.your-button,.your-button:visited {
   cursor: pointer;
   text-decoration: none;
   border: none;
@@ -41,19 +41,19 @@
   border-radius: 1rem;
 }
 
-.your-button:active, .your-button.active {
+.your-button:active,.your-button.active {
   color: white;
   background-color: skyblue;
   box-shadow: inset 0 0 0 4px skyblue;
 }
 
-.your-button:hover, .your-button.active:hover {
+.your-button:hover,.your-button.active:hover {
   color: white;
   background-color: silver;
   box-shadow: inset 0 0 0 4px silver;
 }
 
-.your-button:disabled, .your-button:disabled:active, .your-button:disabled:hover, .your-button.disabled, .your-button.disabled:active, .your-button.disabled:hover {
+.your-button:disabled,.your-button:disabled:active,.your-button:disabled:hover,.your-button.diabled,.your-button.diabled:active,.your-button.diabled:hover {
   opacity: 0.25;
   cursor: default;
   color: skyblue;

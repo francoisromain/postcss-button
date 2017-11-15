@@ -2,6 +2,6 @@
   button-color: skyblue white white;
   button-background: white skyblue silver;
   button-border: 4px skyblue skyblue silver;
-  button-classes: active disabled;
+  button-class: active disabled;
   padding: 0.75rem;
 }
