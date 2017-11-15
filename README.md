@@ -171,7 +171,7 @@ button-background-hover: [color];
 button-background: [background-color] ([background-color-active]) ([background-color-hover]);
 ```
 
-### Border
+#### Border
 
 ``` css
 button-border-width: [width];
@@ -203,7 +203,7 @@ button-border-color-hover: [color];
 button-border: [width] ([border-color]) ([border-color-active]) ([border-color-hover]);
 ```
 
-### Classes
+#### Classes
 
 ``` css
 button-class-active: [class-name];
