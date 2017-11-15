@@ -74,7 +74,7 @@ There are two ways to declare a button:
 }
 ```
 
-```css
+``` css
 .my-button-class {
   button: my-button-name;
 }
