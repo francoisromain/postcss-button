@@ -136,18 +136,12 @@ See [PostCSS docs](https://github.com/postcss/postcss#usage) to setup with Gulp,
 #### Color
 
 ``` css
+/* Button text color when active */
 button-color-active: [color];
-```
 
-- _color_: button text color when active.
-
-``` css
+/* button text color on hover */
 button-color-hover: [color];
-```
 
-- _color_: button text color on hover.
-
-``` css
 /* short-hand syntax */
 button-color: [color] ([color-active]) ([color-hover]);
 ```
@@ -155,18 +149,12 @@ button-color: [color] ([color-active]) ([color-hover]);
 #### Background color
 
 ``` css
+/* button background color when active */
 button-background-active: [color];
-```
 
-- _color_: button background color when active.
-
-``` css
+/* button background color on hover */
 button-background-hover: [color];
-```
 
-- _color_: button background color on hover.
-
-``` css
 /* short-hand syntax */
 button-background: [background-color] ([background-color-active]) ([background-color-hover]);
 ```
@@ -174,31 +162,18 @@ button-background: [background-color] ([background-color-active]) ([background-c
 #### Border
 
 ``` css
+/* width and units of the border */
 button-border-width: [width];
-```
 
-- _width_: width and units of the border.
-
-``` css
+/* color of the border */
 button-border-color: [color];
-```
 
-- _color_: color of the border.
-
-``` css
+/* color of the border when active */
 button-border-color-active: [color];
-```
 
-- _color_: color of the border when active.
-
-``` css
+/* color of the border on hover */
 button-border-color-hover: [color];
-```
 
-- _color_: color of the border on hover.
-
-
-``` css
 /* short-hand syntax */
 button-border: [width] ([border-color]) ([border-color-active]) ([border-color-hover]);
 ```
@@ -206,27 +181,18 @@ button-border: [width] ([border-color]) ([border-color-active]) ([border-color-h
 #### Classes
 
 ``` css
+/* class name to apply the active styles */
 button-class-active: [class-name];
-```
 
-- _class-name_: class name to apply the active styles.
-
-``` css
+/* class name to apply the disabled styles */
 button-class-disabled: [class-name];
-```
 
-- _class-name_: class name to apply the disabled styles.
-
-``` css
+/* apply the classes and pseudo element to the parent element in the selector chain if it exists (default to false). (See test 07 and 08) */
 button-class-parent: [boolean];
-```
 
-- _boolean_: apply the classes and pseudo element to the parent element in the selector chain if it exists (default to false). (See test 07 and 08)
-
-``` css
 /* short-hand syntax */
 button-class: [active] ([disabled]) ([parent]);
 ```
 
-Missing declarations fallback to the _default_ settings.
+Missing declarations fallback to the [_default_ settings](https://github.com/francoisromain/postcss-button/blob/c5bf5e690f12bda8a2a353392dae50e22897e3b3/src/index.js#L93-L106).
 
