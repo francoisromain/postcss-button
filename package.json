@@ -15,6 +15,7 @@
     "css-05": "postcss test/src/05.css -o test/dist/05.css",
     "css-06": "postcss test/src/06.css -o test/dist/06.css",
     "css-07": "postcss test/src/07.css -o test/dist/07.css",
+    "css-08": "postcss test/src/08.css -o test/dist/08.css",
     "build": "npm run babel && npm run css && npm run test",
     "test":
       "npm run css-01 && npm run css-02 && npm run css-03 && npm run css-04 && npm run css-05 && npm run css-06 && npm run css-07",
@@ -28,7 +29,8 @@
     "npm-run-all": "^4.1.1",
     "onchange": "^3.2.1",
     "postcss": "^6.0.13",
-    "postcss-cli": "^4.1.1"
+    "postcss-cli": "^4.1.1",
+    "postcss-nested": "^2.1.2"
   },
   "babel": {
     "presets": ["es2015"]

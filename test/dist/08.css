@@ -1,0 +1,26 @@
+.container {
+  margin: 5rem;
+}
+    .container__link,.container__link:visited {
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+      display: inline-block;
+      color: skyblue;
+      background-color: white;
+    }
+    .container__link:active,.container__link.active {
+  color: white;
+  background-color: red;
+}
+    .container__link:hover,.container__link.active:hover {
+  color: white;
+  background-color: grey;
+}
+    .container__link:disabled,.container__link:disabled:active,.container__link:disabled:hover,.container__link.disabled,.container__link.disabled:active,.container__link.disabled:hover {
+  opacity: 0.25;
+  cursor: default;
+  color: skyblue;
+  background-color: white;
+  box-shadow: inset 0 0 0 0 grey;
+}
