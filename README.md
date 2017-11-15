@@ -91,7 +91,9 @@ There are two ways to declare a button:
 
 Install the [npm package](https://www.npmjs.com/package/postcss-button):
 
-    $ npm install postcss-button --save-dev
+``` bash
+npm install postcss-button --save-dev
+```
 
 Require the PostCSS plugin:
 
@@ -133,11 +135,15 @@ See [PostCSS docs](https://github.com/postcss/postcss#usage) to setup with Gulp,
 
 #### Color
 
-`button-color-active: [color];`
+``` css
+button-color-active: [color];
+```
 
 - _color_: button text color when active.
 
-`button-color-hover: [color];`
+``` css
+button-color-hover: [color];
+```
 
 - _color_: button text color on hover.
 
@@ -148,11 +154,15 @@ button-color: [color] ([color-active]) ([color-hover]);
 
 #### Background color
 
-`button-background-active: [color];`
+``` css
+button-background-active: [color];
+```
 
 - _color_: button background color when active.
 
-`button-background-hover: [color];`
+``` css
+button-background-hover: [color];
+```
 
 - _color_: button background color on hover.
 
@@ -163,19 +173,27 @@ button-background: [background-color] ([background-color-active]) ([background-c
 
 ### Border
 
-`button-border-width: [width];`
+``` css
+button-border-width: [width];
+```
 
 - _width_: width and units of the border.
 
-`button-border-color: [color];`
+``` css
+button-border-color: [color];
+```
 
 - _color_: color of the border.
 
-`button-border-color-active: [color];`
+``` css
+button-border-color-active: [color];
+```
 
 - _color_: color of the border when active.
 
-`button-border-color-hover: [color];`
+``` css
+button-border-color-hover: [color];
+```
 
 - _color_: color of the border on hover.
 
@@ -187,21 +205,27 @@ button-border: [width] ([border-color]) ([border-color-active]) ([border-color-h
 
 ### Classes
 
-`button-class-active: [class-name];`
+``` css
+button-class-active: [class-name];
+```
 
 - _class-name_: class name to apply the active styles.
 
-`button-class-disabled: [class-name];`
+``` css
+button-class-disabled: [class-name];
+```
 
 - _class-name_: class name to apply the disabled styles.
 
-`button-class-parent: [boolean];`
+``` css
+button-class-parent: [boolean];
+```
 
 - _boolean_: apply the classes and pseudo element to the parent element in the selector chain if it exists (default to false). (See test 07 and 08)
 
 ``` css
 /* short-hand syntax */
-button-class: [active] ([disabled]) ([parent]);`
+button-class: [active] ([disabled]) ([parent]);
 ```
 
 Missing declarations fallback to the _default_ settings.
