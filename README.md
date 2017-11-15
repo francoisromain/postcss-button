@@ -110,24 +110,24 @@ See [PostCSS docs](https://github.com/postcss/postcss#usage) to setup with Gulp,
 #### With a configuration (optional)
 
 ``` css
-@button ([name]) {
-  [button-rules…]
-}
-```
 
-``` css
+@button ([name]) {
+  /* name is a custom identifier to use multiple configurations.
+  If no name is provided, the default settings are overwritten */
+  [button-css-rules…]
+}
+
 .my-class {
   button: [name];
+  /* use 'default' to apply the default settings */
 }
 ```
-
-- _name_ (optional): custom identifier. If no _name_ is provided, the _default_ settings are overwritten.
 
 #### Without a configuration
 
 ``` css
 .my-class {
-  [button-rules…]
+  [button-css-rules…]
 }
 ```
 

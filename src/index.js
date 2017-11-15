@@ -17,7 +17,7 @@ const propOption = (decl, optionsCurrent) => {
     option.backgroundColorActive = value[0];
   } else if (decl.prop.match(/^button-background-color-hover$/)) {
     option.backgroundColorHover = value[0];
-  } else if (decl.prop.match(/^border-width$/)) {
+  } else if (decl.prop.match(/^button-border-width$/)) {
     option.borderWidth = value[0];
   } else if (decl.prop.match(/^button-border-color$/)) {
     option.borderColor = value[0];
