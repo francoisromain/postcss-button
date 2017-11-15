@@ -17,7 +17,7 @@ A [PostCSS] plugin to create buttons.
 
 * * *
 
-This plugin handles a lot of repetetive css code necessary to create clean buttons. It also uses `box-shadow` to create borders which respect the vertical rythm.
+This plugin outputs a lot of css repetitive code necessary to create clean buttons. It also uses `box-shadow` to create borders which respect the vertical rythm.
 
 * * *
 
@@ -191,7 +191,7 @@ button-border: [width] ([border-color]) ([border-color-active]) ([border-color-h
 
 - _class-name_: class name to apply the active styles.
 
-`button-class-disbaled: [class-name];`
+`button-class-disabled: [class-name];`
 
 - _class-name_: class name to apply the disabled styles.
 
