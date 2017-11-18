@@ -21,95 +21,7 @@
     <hr />
   </header>
   <main class="container" role="main">
-    <h2 id="settings">With a configuration</h2>
-    <div class=row-blobs>
-      <div class="blob-code">
-        <h4>Input</h4>
-        <pre><code class="language-css">/* Define global settings */
-
-@button test {
-  /* Detailed syntax example */
-
-  /* Color */
-  button-color: orangered;
-  button-color-active: whitesmoke;
-  button-color-hover: whitesmoke;
-
-  /* Background color */
-  button-background-color: white;
-  button-background-color-active: silver;
-  button-background-color-hover: orangered;
-
-  /* Border */
-  button-border-width: 1px;
-  button-border-color: silver;
-  button-border-color-active: silver;
-  button-border-color-hover: orangered;
-
-  /* Classes */
-  button-class-active: active;
-  button-class-disabled: disabled;
-  button-class-parent: false;
-}
-
-.my-button {
-  button: test;
-}</code></pre>
-
-      </div>
-      <div class="blob-code">
-        <h4>Output</h4>
-        <pre><code class="language-css">.my-button,
-.my-button:visited {
-  cursor: pointer;
-  text-decoration: none;
-  border: none;
-  display: inline-block;
-  padding: 0;
-  color: orangered;
-  background-color: white;
-  box-shadow: inset 0 0 0 1px silver;
-}
-
-.my-button:active,
-.my-button.active {
-  color: whitesmoke;
-  background-color: silver;
-  box-shadow: inset 0 0 0 1px silver;
-}
-
-.my-button:hover,
-.my-button.active:hover {
-  color: whitesmoke;
-  background-color: orangered;
-  box-shadow: inset 0 0 0 1px orangered;
-}
-
-.my-button:disabled,
-.my-button:disabled:active,
-.my-button:disabled:hover,
-.my-button.disabled,
-.my-button.disabled:active,
-.my-button.disabled:hover {
-  opacity: 0.25;
-  cursor: default;
-  color: orangered;
-  background-color: white;
-  box-shadow: inset 0 0 0 1px silver;
-}</code></pre>
-      </div>
-    </div>
-    <h4>Result</h4>
-    <div class=row>
-      <div class="bloc">
-        <button class="my-button">My Button</button>
-        <button class="my-button disabled">My Button disabled</button>
-        <button class="my-button active">My Button active</button>
-      </div>
-    </div>
-    <br />
-    <hr />
-    <h2 id="settings">Without a configuration</h2>
+    <h2 id="settings">With no configuration</h2>
     <div class=row-blobs>
       <div class="blob-code">
         <h4>Input</h4>
@@ -178,6 +90,96 @@
         <button class="your-button">Your Button</button>
         <button class="your-button disabled">Your Button disabled</button>
         <button class="your-button active">Your Button active</button>
+      </div>
+    </div>
+    <br>
+    <hr>
+    <h2 id="settings">With a configuration</h2>
+    <div class=row-blobs>
+      <div class="blob-code">
+        <h4>Input</h4>
+        <pre><code class="language-css">/* Define global settings */
+
+@button test {
+  /* Detailed syntax example */
+
+  /* Color */
+  button-color: orangered;
+  button-color-active: whitesmoke;
+  button-color-hover: whitesmoke;
+
+  /* Background color */
+  button-background-color: white;
+  button-background-color-active: silver;
+  button-background-color-hover: orangered;
+
+  /* Border */
+  button-border-width: 1px;
+  button-border-color: silver;
+  button-border-color-active: silver;
+  button-border-color-hover: orangered;
+
+  /* Classes */
+  button-class-active: active;
+  button-class-disabled: disabled;
+  button-class-parent: false;
+}
+
+/* Apply settings */
+
+.my-button {
+  button: test;
+}</code></pre>
+
+      </div>
+      <div class="blob-code">
+        <h4>Output</h4>
+        <pre><code class="language-css">.my-button,
+.my-button:visited {
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  display: inline-block;
+  padding: 0;
+  color: orangered;
+  background-color: white;
+  box-shadow: inset 0 0 0 1px silver;
+}
+
+.my-button:active,
+.my-button.active {
+  color: whitesmoke;
+  background-color: silver;
+  box-shadow: inset 0 0 0 1px silver;
+}
+
+.my-button:hover,
+.my-button.active:hover {
+  color: whitesmoke;
+  background-color: orangered;
+  box-shadow: inset 0 0 0 1px orangered;
+}
+
+.my-button:disabled,
+.my-button:disabled:active,
+.my-button:disabled:hover,
+.my-button.disabled,
+.my-button.disabled:active,
+.my-button.disabled:hover {
+  opacity: 0.25;
+  cursor: default;
+  color: orangered;
+  background-color: white;
+  box-shadow: inset 0 0 0 1px silver;
+}</code></pre>
+      </div>
+    </div>
+    <h4>Result</h4>
+    <div class=row>
+      <div class="bloc">
+        <button class="my-button">My Button</button>
+        <button class="my-button disabled">My Button disabled</button>
+        <button class="my-button active">My Button active</button>
       </div>
     </div>
   </main>
