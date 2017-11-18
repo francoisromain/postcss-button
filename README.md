@@ -2,6 +2,8 @@
 
 [![npm version][npm-img]][npm] [![Build Status][ci-img]][ci] [![Dependency Status][dep-img]][dep]
 
+[![NPM](https://nodei.co/npm/postcss-button.png)](https://nodei.co/npm/postcss-button/)
+
 [francoisromain.github.io/postcss-button][github.io]
 
 A [PostCSS] plugin to create buttons.
@@ -17,7 +19,7 @@ A [PostCSS] plugin to create buttons.
 
 * * *
 
-This plugin outputs a lot of css repetitive code necessary to create clean buttons. It also uses `box-shadow` to create borders which respect the vertical rythm.
+This plugin outputs a lot of the repetitive css code necessary to create clean buttons. It also uses `box-shadow` to create borders which does not break the vertical rhythm.
 
 * * *
 
@@ -175,7 +177,7 @@ button-border-color-active: [color];
 button-border-color-hover: [color];
 
 /* short-hand syntax */
-button-border: [width] ([border-color]) ([border-color-active]) ([border-color-hover]);
+button-border: [border-width] ([border-color]) ([border-color-active]) ([border-color-hover]);
 ```
 
 #### Classes
@@ -187,7 +189,10 @@ button-class-active: [class-name];
 /* class name to apply the disabled styles */
 button-class-disabled: [class-name];
 
-/* apply the classes and pseudo element to the parent element in the selector chain if it exists (default to false). (See test 07 and 08) */
+/* apply the classes and pseudo elements
+to the parent element in the selector chain
+if it exists. (default to false)
+(See test 07 and 08) */
 button-class-parent: [boolean];
 
 /* short-hand syntax */
