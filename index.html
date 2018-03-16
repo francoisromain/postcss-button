@@ -21,8 +21,15 @@
     <hr />
   </header>
   <main class="container" role="main">
-    <h2 id="settings">With no configuration</h2>
-    <div class=row-blobs>
+    <h4>Example with no configuration</h4>
+    <div class="row">
+      <div class="bloc mb">
+        <button class="your-button">Your Button</button>
+        <button class="your-button disabled">Your Button disabled</button>
+        <button class="your-button active">Your Button active</button>
+      </div>
+    </div>
+    <div class="row-blobs">
       <div class="blob-code">
         <h4>Input</h4>
         <pre><code class="language-css">.your-button {
@@ -50,7 +57,6 @@
   text-decoration: none;
   border: none;
   display: inline-block;
-  padding: 0;
   color: skyblue;
   background-color: white;
   box-shadow: inset 0 0 0 4px skyblue;
@@ -84,21 +90,21 @@
 }</code></pre>
       </div>
     </div>
-    <h4>Result</h4>
-    <div class=row>
-      <div class="bloc">
-        <button class="your-button">Your Button</button>
-        <button class="your-button disabled">Your Button disabled</button>
-        <button class="your-button active">Your Button active</button>
-      </div>
-    </div>
+
     <br>
     <hr>
-    <h2 id="settings">With a configuration</h2>
-    <div class=row-blobs>
-      <div class="blob-code">
-        <h4>Input</h4>
-        <pre><code class="language-css">/* Define global settings */
+    <h4>Example with a configuration</h2>
+      <div class="row">
+        <div class="bloc mb">
+          <button class="my-button">My Button</button>
+          <button class="my-button disabled">My Button disabled</button>
+          <button class="my-button active">My Button active</button>
+        </div>
+      </div>
+      <div class="row-blobs">
+        <div class="blob-code">
+          <h4>Input</h4>
+          <pre><code class="language-css">/* Define global settings */
 
 @button test {
   /* Detailed syntax example */
@@ -131,16 +137,15 @@
   button: test;
 }</code></pre>
 
-      </div>
-      <div class="blob-code">
-        <h4>Output</h4>
-        <pre><code class="language-css">.my-button,
+        </div>
+        <div class="blob-code">
+          <h4>Output</h4>
+          <pre><code class="language-css">.my-button,
 .my-button:visited {
   cursor: pointer;
   text-decoration: none;
   border: none;
   display: inline-block;
-  padding: 0;
   color: orangered;
   background-color: white;
   box-shadow: inset 0 0 0 1px silver;
@@ -172,16 +177,8 @@
   background-color: white;
   box-shadow: inset 0 0 0 1px silver;
 }</code></pre>
+        </div>
       </div>
-    </div>
-    <h4>Result</h4>
-    <div class=row>
-      <div class="bloc">
-        <button class="my-button">My Button</button>
-        <button class="my-button disabled">My Button disabled</button>
-        <button class="my-button active">My Button active</button>
-      </div>
-    </div>
   </main>
   <footer>
     <div class="container">
