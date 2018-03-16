@@ -15,6 +15,12 @@ const tests = {
   button-color: skyblue white white;
   button-class-parent: true;
 }
+
+.link-four {
+  padding: 2rem;
+  button-color: skyblue white white;
+  button-class-parent: true;
+}
 `,
   output: `.parent .link-one,.parent .link-one:visited {
   cursor: pointer;
@@ -93,6 +99,34 @@ const tests = {
 }
 
 .parent:disabled .link-three,.parent:disabled:active .link-three,.parent:disabled:hover .link-three,.parent.disabled .link-three,.parent.disabled:active .link-three,.parent.disabled:hover .link-three {
+  opacity: 0.25;
+  cursor: default;
+  color: skyblue;
+  background-color: white;
+  box-shadow: inset 0 0 0 0 grey;
+}
+
+.link-four,:visited .link-four {
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  display: inline-block;
+  color: skyblue;
+  background-color: white;
+  padding: 2rem;
+}
+
+:active .link-four,.active .link-four {
+  color: white;
+  background-color: red;
+}
+
+:hover .link-four,.active:hover .link-four {
+  color: white;
+  background-color: grey;
+}
+
+:disabled .link-four,:disabled:active .link-four,:disabled:hover .link-four,.disabled .link-four,.disabled:active .link-four,.disabled:hover .link-four {
   opacity: 0.25;
   cursor: default;
   color: skyblue;

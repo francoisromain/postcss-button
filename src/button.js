@@ -3,8 +3,10 @@ import postcss from 'postcss';
 const selectorApply = (selector, modifiers, applyToParent) => {
   const apply = (sel, modifier) => {
     const sels = sel.split(' ');
-    return sels.length > 1 && applyToParent
-      ? `${sels.shift()}${modifier} ${sels.join(' ')}`
+    const child = applyToParent && sels.length >= 1 ? sels.pop() : null;
+
+    return applyToParent && child
+      ? `${sels.join(' ')}${modifier} ${child}`
       : `${sels.join(' ')}${modifier}`;
   };
 
