@@ -106,7 +106,7 @@ const tests = {
   box-shadow: inset 0 0 0 0 grey;
 }
 
-.link-four,:visited .link-four {
+.link-four,.link-four:visited {
   cursor: pointer;
   text-decoration: none;
   border: none;
@@ -116,17 +116,17 @@ const tests = {
   padding: 2rem;
 }
 
-:active .link-four,.active .link-four {
+.link-four:active,.active .link-four {
   color: white;
   background-color: red;
 }
 
-:hover .link-four,.active:hover .link-four {
+.link-four:hover,.active:hover .link-four {
   color: white;
   background-color: grey;
 }
 
-:disabled .link-four,:disabled:active .link-four,:disabled:hover .link-four,.disabled .link-four,.disabled:active .link-four,.disabled:hover .link-four {
+.link-four:disabled,.link-four:disabled:active,.link-four:disabled:hover,.disabled .link-four,.disabled:active .link-four,.disabled:hover .link-four {
   opacity: 0.25;
   cursor: default;
   color: skyblue;

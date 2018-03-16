@@ -1,14 +1,8 @@
 {
   "name": "postcss-button",
-  "version": "0.3.9",
+  "version": "0.3.10",
   "description": "A PostCSS plugin to create buttons.",
-  "keywords": [
-    "postcss",
-    "css",
-    "postcss-plugin",
-    "buttons",
-    "system.css"
-  ],
+  "keywords": ["postcss", "css", "postcss-plugin", "buttons", "system.css"],
   "author": "Francois Romain <francoisromain@gmail.com>",
   "license": "MIT",
   "repository": {
@@ -50,16 +44,10 @@
     }
   },
   "ava": {
-    "files": [
-      "test/tests.js"
-    ],
-    "require": [
-      "babel-register"
-    ]
+    "files": ["test/tests.js"],
+    "require": ["babel-register"]
   },
   "babel": {
-    "presets": [
-      "es2015"
-    ]
+    "presets": ["es2015"]
   }
 }

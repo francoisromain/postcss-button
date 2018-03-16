@@ -1,9 +1,10 @@
 import postcss from 'postcss';
 
-const selectorApply = (selector, modifiers, applyToParent) => {
+const selectorApply = (selector, modifiers, applyToParent, isClass) => {
   const apply = (sel, modifier) => {
     const sels = sel.split(' ');
-    const child = applyToParent && sels.length >= 1 ? sels.pop() : null;
+    const child =
+      applyToParent && ((sels.length >= 1 && isClass) || sels.length > 1) ? sels.pop() : null;
 
     return applyToParent && child
       ? `${sels.join(' ')}${modifier} ${child}`
@@ -32,6 +33,7 @@ const ruleDisabled = (ruleSelectors, options) => {
           `.${options.classDisabled}:hover`,
         ],
         options.classParent,
+        true,
       )
       : [];
 
@@ -55,7 +57,7 @@ const ruleHover = (ruleSelectors, options) => {
   rule.selectors = ruleSelectors.map((selector) => {
     const selectorDefault = selectorApply(selector, ':hover', options.classParent);
     const selectorClass = options.classActive
-      ? selectorApply(selector, `.${options.classActive}:hover`, options.classParent)
+      ? selectorApply(selector, `.${options.classActive}:hover`, options.classParent, true)
       : '';
 
     return [selectorDefault, selectorClass];
@@ -84,7 +86,7 @@ const ruleActive = (ruleSelectors, options) => {
   rule.selectors = ruleSelectors.map((selector) => {
     const selectorDefault = selectorApply(selector, ':active', options.classParent);
     const selectorClass = options.classActive
-      ? selectorApply(selector, `.${options.classActive}`, options.classParent)
+      ? selectorApply(selector, `.${options.classActive}`, options.classParent, true)
       : '';
 
     return [selectorDefault, selectorClass];
