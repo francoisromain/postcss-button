@@ -134,7 +134,7 @@ const declDefault = (options) => {
   return [...d1, d2, d3, ...d4];
 };
 
-export default (rule, options) => {
+const button = (rule, options) => {
   rule.after(ruleDisabled(rule.selectors, options));
 
   if (options.colorHover || options.backgroundColorHover || options.borderColorHover) {
@@ -148,3 +148,5 @@ export default (rule, options) => {
   rule.selectors = rule.selectors.map(selector => `${selector},${selectorApply(selector, ':visited', options.classParent)}`);
   rule.prepend(declDefault(options));
 };
+
+module.exports = button;

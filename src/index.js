@@ -1,5 +1,5 @@
-import postcss from 'postcss';
-import button from './button';
+const postcss = require('postcss');
+const button = require('./button');
 
 const propOption = (decl, optionsCurrent) => {
   const option = {};
@@ -138,4 +138,4 @@ const postcssButton = postcss.plugin('postcss-button', (opts) => {
   };
 });
 
-export default postcssButton;
+module.exports = postcssButton;
