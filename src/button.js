@@ -1,4 +1,4 @@
-import postcss from 'postcss';
+const postcss = require('postcss');
 
 const selectorApply = (selector, modifiers, applyToParent, isClass) => {
   const apply = (sel, modifier) => {
