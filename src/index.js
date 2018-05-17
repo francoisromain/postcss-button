@@ -88,7 +88,7 @@ const atruleOptions = (node, options) => {
   return option;
 };
 
-module.exports = postcss.plugin('postcss-button', (opts) => {
+const postcssButton = postcss.plugin('postcss-button', (opts) => {
   const options = {
     default: {
       borderWidth: '0',
@@ -137,3 +137,5 @@ module.exports = postcss.plugin('postcss-button', (opts) => {
     });
   };
 });
+
+export default postcssButton;

@@ -1,5 +1,6 @@
-import postcss from 'postcss';
 import test from 'ava';
+import postcss from 'postcss';
+import plugin from '../src/index';
 import test01 from './01';
 import test02 from './02';
 import test03 from './03';
@@ -8,7 +9,6 @@ import test05 from './05';
 import test06 from './06';
 import test07 from './07';
 import test08 from './08';
-import plugin from '../src/index';
 
 function run(t, input, output, opts = {}) {
   return postcss([plugin(opts)])
