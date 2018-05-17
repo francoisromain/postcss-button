@@ -1,6 +1,6 @@
 {
   "name": "postcss-button",
-  "version": "0.3.11",
+  "version": "0.3.12",
   "description": "A PostCSS plugin to create buttons.",
   "keywords": [
     "postcss",
@@ -64,7 +64,7 @@
         "@babel/preset-env",
         {
           "targets": {
-            "node": "6.10"
+            "node": "10"
           }
         }
       ]
