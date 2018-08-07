@@ -1,6 +1,6 @@
 {
   "name": "postcss-button",
-  "version": "0.3.15",
+  "version": "0.3.16",
   "description": "A PostCSS plugin to create buttons.",
   "keywords": [
     "postcss",
@@ -19,25 +19,25 @@
     "url": "https://github.com/francoisromain/postcss-button/issues"
   },
   "homepage": "http://francoisromain.github.io/postcss-button/",
-  "dependencies": {
-    "postcss": "^6.0.22"
-  },
+  "main": "./lib/index.js",
   "scripts": {
     "build": "babel src --out-dir lib",
     "test": "npm run build && ava"
   },
-  "main": "./lib/index.js",
+  "dependencies": {
+    "postcss": "^7.0.2"
+  },
   "devDependencies": {
-    "@babel/cli": "^7.0.0-beta.47",
-    "@babel/core": "^7.0.0-beta.47",
-    "@babel/preset-env": "^7.0.0-beta.47",
-    "@babel/register": "^7.0.0-beta.47",
+    "@babel/cli": "^7.0.0-beta.56",
+    "@babel/core": "^7.0.0-beta.56",
+    "@babel/preset-env": "^7.0.0-beta.56",
+    "@babel/register": "^7.0.0-beta.56",
     "ava": "^1.0.0-beta.4",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-plugin-import": "^2.12.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.8.2"
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.10.0"
   },
   "eslintConfig": {
     "extends": "airbnb",

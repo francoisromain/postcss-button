@@ -8,8 +8,7 @@ import test05 from './05';
 import test06 from './06';
 import test07 from './07';
 import test08 from './08';
-
-const plugin = require('../src/index');
+import plugin from '../lib/index';
 
 function run(t, input, output, opts = {}) {
   return postcss([plugin(opts)])

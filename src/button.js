@@ -1,10 +1,9 @@
-const postcss = require('postcss');
+import postcss from 'postcss';
 
 const selectorApply = (selector, modifiers, applyToParent, isClass) => {
   const apply = (sel, modifier) => {
     const sels = sel.split(' ');
-    const child =
-      applyToParent && ((sels.length >= 1 && isClass) || sels.length > 1) ? sels.pop() : null;
+    const child = applyToParent && ((sels.length >= 1 && isClass) || sels.length > 1) ? sels.pop() : null;
 
     return applyToParent && child
       ? `${sels.join(' ')}${modifier} ${child}`
@@ -121,15 +120,14 @@ const declDefault = (options) => {
   const d3 = options.backgroundColor
     ? postcss.decl({ prop: 'background-color', value: options.backgroundColor })
     : '';
-  const d4 =
-    options.borderWidth && options.borderWidth !== '0'
-      ? [
-        postcss.decl({
-          prop: 'box-shadow',
-          value: `inset 0 0 0 ${options.borderWidth} ${options.borderColor}`,
-        }),
-      ]
-      : [];
+  const d4 = options.borderWidth && options.borderWidth !== '0'
+    ? [
+      postcss.decl({
+        prop: 'box-shadow',
+        value: `inset 0 0 0 ${options.borderWidth} ${options.borderColor}`,
+      }),
+    ]
+    : [];
 
   return [...d1, d2, d3, ...d4];
 };
@@ -145,8 +143,10 @@ const button = (rule, options) => {
     rule.after(ruleActive(rule.selectors, options));
   }
 
-  rule.selectors = rule.selectors.map(selector => `${selector},${selectorApply(selector, ':visited', options.classParent)}`);
+  rule.selectors = rule.selectors.map(
+    selector => `${selector},${selectorApply(selector, ':visited', options.classParent)}`,
+  );
   rule.prepend(declDefault(options));
 };
 
-module.exports = button;
+export default button;

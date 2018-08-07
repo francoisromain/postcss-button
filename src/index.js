@@ -1,5 +1,5 @@
-const postcss = require('postcss');
-const button = require('./button');
+import postcss from 'postcss';
+import button from './button';
 
 const propOption = (decl, optionsCurrent) => {
   const option = {};
