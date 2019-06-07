@@ -82,7 +82,6 @@ There are two ways to declare a button:
 }
 ```
 
-
 01: [input](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/src/01.css), [output](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/dist/01.css), [markup](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/01.html), [demo](https://francoisromain.github.io/postcss-button/test/01.html)
 
 02: [input](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/src/02.css), [output](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/dist/02.css), [markup](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/02.html), [demo](https://francoisromain.github.io/postcss-button/test/02.html)
@@ -200,4 +199,3 @@ button-class: [active] ([disabled]) ([parent]);
 ```
 
 Missing declarations fallback to the [_default_ settings](https://github.com/francoisromain/postcss-button/blob/c5bf5e690f12bda8a2a353392dae50e22897e3b3/src/index.js#L93-L106).
-
