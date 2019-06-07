@@ -6,7 +6,6 @@
   "license": "MIT",
   "repository": "francoisromain/postcss-button",
   "scripts": {
-    "babel": "babel postcss-button/src --out-dir postcss-button/lib",
     "css": "postcss src/button.css -o dist/button.css",
     "css-01": "postcss test/src/01.css -o test/dist/01.css",
     "css-02": "postcss test/src/02.css -o test/dist/02.css",
@@ -16,30 +15,14 @@
     "css-06": "postcss test/src/06.css -o test/dist/06.css",
     "css-07": "postcss test/src/07.css -o test/dist/07.css",
     "css-08": "postcss test/src/08.css -o test/dist/08.css",
-    "build": "npm run babel && npm run css && npm run test",
     "test": "npm run css-01 && npm run css-02 && npm run css-03 && npm run css-04 && npm run css-05 && npm run css-06 && npm run css-07 && npm run css-08",
     "dev": "onchange 'index.html' 'src/**/*.*' 'postcss-button/src/**/*.*' -- npm run build & livereload"
   },
   "devDependencies": {
-    "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
     "livereload": "^0.8.0",
     "npm-run-all": "^4.1.5",
     "onchange": "^6.0.0",
     "postcss": "^7.0.17",
     "postcss-cli": "^6.1.2"
-  },
-  "babel": {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "targets": {
-            "node": "10"
-          }
-        }
-      ]
-    ]
   }
 }
