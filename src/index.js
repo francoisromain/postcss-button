@@ -1,5 +1,5 @@
 /* eslint-disable prefer-destructuring */
-import button from "./button";
+import button from './button';
 
 const propOption = (decl, optionsCurrent) => {
   const option = {};
@@ -30,7 +30,7 @@ const propOption = (decl, optionsCurrent) => {
   } else if (decl.prop.match(/^button-class-disabled$/)) {
     option.classDisabled = value[0];
   } else if (decl.prop.match(/^button-class-parent$/)) {
-    option.classParent = !!value[0] && value[0] !== "false";
+    option.classParent = !!value[0] && value[0] !== 'false';
   } else if (decl.prop.match(/^button-color$/)) {
     option.color = value[0];
 
@@ -73,7 +73,7 @@ const propOption = (decl, optionsCurrent) => {
     }
 
     if (value[2]) {
-      option.classParent = !!value[2] && value[2] !== "false";
+      option.classParent = !!value[2] && value[2] !== 'false';
     }
   }
 
@@ -92,18 +92,18 @@ const atruleOptions = (node, options) => {
 const postcssButton = (opts) => {
   const options = {
     default: {
-      borderWidth: "0",
-      color: "grey",
-      colorActive: "white",
-      colorHover: "white",
-      backgroundColor: "white",
-      backgroundColorActive: "red",
-      backgroundColorHover: "grey",
-      borderColor: "grey",
-      borderColorActive: "red",
-      borderColorHover: "grey",
-      classActive: "active",
-      classDisabled: "disabled",
+      borderWidth: '0',
+      color: 'grey',
+      colorActive: 'white',
+      colorHover: 'white',
+      backgroundColor: 'white',
+      backgroundColorActive: 'red',
+      backgroundColorHover: 'grey',
+      borderColor: 'grey',
+      borderColorActive: 'red',
+      borderColorHover: 'grey',
+      classActive: 'active',
+      classDisabled: 'disabled',
       classParent: false,
     },
   };
@@ -118,16 +118,16 @@ const postcssButton = (opts) => {
   Object.assign(options.default, opts);
 
   return {
-    postcssPlugin: "postcss-button",
+    postcssPlugin: 'postcss-button',
     Once(root) {
       root.walk((node) => {
-        if (node.type === "atrule" && node.name.match(/^button/)) {
-          const name = node.params || "default";
+        if (node.type === 'atrule' && node.name.match(/^button/)) {
+          const name = node.params || 'default';
           options[name] = options[name] || {};
 
           Object.assign(options[name], atruleOptions(node, options));
           node.remove();
-        } else if (node.parent.type === "rule" && node.type === "decl") {
+        } else if (node.parent.type === 'rule' && node.type === 'decl') {
           if (node.prop.match(/^button/)) {
             options.tmp = options.tmp || { ...options.default };
             Object.assign(options.tmp, propOption(node, options[node.value]));
