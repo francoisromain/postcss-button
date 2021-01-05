@@ -1,5 +1,5 @@
-import postcss from 'postcss';
-import button from './button';
+/* eslint-disable prefer-destructuring */
+import button from "./button";
 
 const propOption = (decl, optionsCurrent) => {
   const option = {};
@@ -30,7 +30,7 @@ const propOption = (decl, optionsCurrent) => {
   } else if (decl.prop.match(/^button-class-disabled$/)) {
     option.classDisabled = value[0];
   } else if (decl.prop.match(/^button-class-parent$/)) {
-    option.classParent = !!value[0] && value[0] !== 'false';
+    option.classParent = !!value[0] && value[0] !== "false";
   } else if (decl.prop.match(/^button-color$/)) {
     option.color = value[0];
 
@@ -73,7 +73,7 @@ const propOption = (decl, optionsCurrent) => {
     }
 
     if (value[2]) {
-      option.classParent = !!value[2] && value[2] !== 'false';
+      option.classParent = !!value[2] && value[2] !== "false";
     }
   }
 
@@ -85,24 +85,25 @@ const atruleOptions = (node, options) => {
   node.walkDecls((decl) => {
     Object.assign(option, propOption(decl, options[decl.value]));
   });
+
   return option;
 };
 
-const postcssButton = postcss.plugin('postcss-button', (opts) => {
+const postcssButton = (opts) => {
   const options = {
     default: {
-      borderWidth: '0',
-      color: 'grey',
-      colorActive: 'white',
-      colorHover: 'white',
-      backgroundColor: 'white',
-      backgroundColorActive: 'red',
-      backgroundColorHover: 'grey',
-      borderColor: 'grey',
-      borderColorActive: 'red',
-      borderColorHover: 'grey',
-      classActive: 'active',
-      classDisabled: 'disabled',
+      borderWidth: "0",
+      color: "grey",
+      colorActive: "white",
+      colorHover: "white",
+      backgroundColor: "white",
+      backgroundColorActive: "red",
+      backgroundColorHover: "grey",
+      borderColor: "grey",
+      borderColorActive: "red",
+      borderColorHover: "grey",
+      classActive: "active",
+      classDisabled: "disabled",
       classParent: false,
     },
   };
@@ -116,26 +117,29 @@ const postcssButton = postcss.plugin('postcss-button', (opts) => {
 
   Object.assign(options.default, opts);
 
-  return (css) => {
-    css.walk((node) => {
-      if (node.type === 'atrule' && node.name.match(/^button/)) {
-        const name = node.params || 'default';
-        options[name] = options[name] || {};
+  return {
+    postcssPlugin: "postcss-button",
+    Once(root) {
+      root.walk((node) => {
+        if (node.type === "atrule" && node.name.match(/^button/)) {
+          const name = node.params || "default";
+          options[name] = options[name] || {};
 
-        Object.assign(options[name], atruleOptions(node, options));
-        node.remove();
-      } else if (node.parent.type === 'rule' && node.type === 'decl') {
-        if (node.prop.match(/^button/)) {
-          options.tmp = options.tmp || Object.assign({}, options.default);
-          Object.assign(options.tmp, propOption(node, options[node.value]));
-          buttonMake(node);
+          Object.assign(options[name], atruleOptions(node, options));
           node.remove();
-        } else {
-          buttonMake(node);
+        } else if (node.parent.type === "rule" && node.type === "decl") {
+          if (node.prop.match(/^button/)) {
+            options.tmp = options.tmp || { ...options.default };
+            Object.assign(options.tmp, propOption(node, options[node.value]));
+            buttonMake(node);
+            node.remove();
+          } else {
+            buttonMake(node);
+          }
         }
-      }
-    });
+      });
+    },
   };
-});
+};
 
 module.exports = postcssButton;

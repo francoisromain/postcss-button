@@ -9,19 +9,19 @@
 A [PostCSS] plugin to create buttons.
 
 [github.io]: http://francoisromain.github.io/postcss-button
-[PostCSS]:   https://github.com/postcss/postcss
-[ci-img]:    https://travis-ci.org/francoisromain/postcss-button.svg
-[ci]:        https://travis-ci.org/francoisromain/postcss-button
-[npm-img]:   https://badge.fury.io/js/postcss-button.svg
-[npm]:       https://badge.fury.io/js/postcss-button
-[dep-img]:   https://david-dm.org/francoisromain/postcss-button.svg
-[dep]:       https://david-dm.org/francoisromain/postcss-button
+[postcss]: https://github.com/postcss/postcss
+[ci-img]: https://travis-ci.org/francoisromain/postcss-button.svg
+[ci]: https://travis-ci.org/francoisromain/postcss-button
+[npm-img]: https://badge.fury.io/js/postcss-button.svg
+[npm]: https://badge.fury.io/js/postcss-button
+[dep-img]: https://david-dm.org/francoisromain/postcss-button.svg
+[dep]: https://david-dm.org/francoisromain/postcss-button
 
-* * *
+---
 
 This plugin outputs a lot of the repetitive css code necessary to create clean buttons. It also uses `box-shadow` to create borders which does not break the vertical rhythm.
 
-* * *
+---
 
 ## Examples
 
@@ -29,7 +29,7 @@ There are two ways to declare a button:
 
 #### With specific declarations
 
-``` css
+```css
 .my-button-class {
   /* short-hand syntax example */
 
@@ -49,7 +49,7 @@ There are two ways to declare a button:
 
 #### With a configuration
 
-``` css
+```css
 @button my-button-name {
   /* detailed-syntax example */
 
@@ -76,7 +76,7 @@ There are two ways to declare a button:
 }
 ```
 
-``` css
+```css
 .my-button-class {
   button: my-button-name;
 }
@@ -86,31 +86,31 @@ There are two ways to declare a button:
 
 02: [input](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/src/02.css), [output](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/dist/02.css), [markup](https://github.com/francoisromain/postcss-button/blob/gh-pages/test/02.html), [demo](https://francoisromain.github.io/postcss-button/test/02.html)
 
-* * *
+---
 
 ## Installation
 
 Install the [npm package](https://www.npmjs.com/package/postcss-button):
 
-``` bash
-npm install postcss-button --save-dev
+```bash
+npm install --save-dev postcss postcss-button
 ```
 
 Require the PostCSS plugin:
 
-``` js
-postcss([ require('postcss-button') ])
+```js
+postcss([require("postcss-button")]);
 ```
 
 See [PostCSS docs](https://github.com/postcss/postcss#usage) to setup with Gulp, Grunt, Webpack, npm scripts…
 
-* * *
+---
 
 ## Usage
 
 #### With a configuration (optional)
 
-``` css
+```css
 
 @button ([name]) {
   /* name is a custom identifier to use multiple configurations.
@@ -126,7 +126,7 @@ See [PostCSS docs](https://github.com/postcss/postcss#usage) to setup with Gulp,
 
 #### Without a configuration
 
-``` css
+```css
 .my-class {
   [button-css-rules…]
 }
@@ -136,7 +136,7 @@ See [PostCSS docs](https://github.com/postcss/postcss#usage) to setup with Gulp,
 
 #### Color
 
-``` css
+```css
 /* Button text color when active */
 button-color-active: [color];
 
@@ -149,7 +149,7 @@ button-color: [color] ([color-active]) ([color-hover]);
 
 #### Background color
 
-``` css
+```css
 /* button background color when active */
 button-background-active: [color];
 
@@ -157,12 +157,13 @@ button-background-active: [color];
 button-background-hover: [color];
 
 /* short-hand syntax */
-button-background: [background-color] ([background-color-active]) ([background-color-hover]);
+button-background: [background-color] ([background-color-active])
+  ([background-color-hover]);
 ```
 
 #### Border
 
-``` css
+```css
 /* width and units of the border */
 button-border-width: [width];
 
@@ -176,12 +177,13 @@ button-border-color-active: [color];
 button-border-color-hover: [color];
 
 /* short-hand syntax */
-button-border: [border-width] ([border-color]) ([border-color-active]) ([border-color-hover]);
+button-border: [border-width] ([border-color]) ([border-color-active])
+  ([border-color-hover]);
 ```
 
 #### Classes
 
-``` css
+```css
 /* class name to apply the active styles */
 button-class-active: [class-name];
 
