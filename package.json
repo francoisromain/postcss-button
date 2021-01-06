@@ -1,6 +1,6 @@
 {
   "name": "postcss-button",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "A PostCSS plugin to create buttons.",
   "keywords": [
     "postcss",
@@ -33,6 +33,7 @@
     "@babel/preset-env": "^7.12.11",
     "@babel/register": "^7.12.10",
     "ava": "^3.15.0",
+    "clean-publish": "^1.1.8",
     "eslint": "^7.17.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^7.1.0",

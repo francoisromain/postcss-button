@@ -80,7 +80,7 @@ const propOption = (decl, optionsCurrent) => {
   return option;
 };
 
-const atruleOptions = (node, options) => {
+const atRuleOptions = (node, options) => {
   const option = {};
   node.walkDecls((decl) => {
     Object.assign(option, propOption(decl, options[decl.value]));
@@ -108,9 +108,10 @@ const postcssButton = (opts) => {
     },
   };
 
-  const buttonMake = (node) => {
+  const buttonMake = (node, { rule, decl }) => {
     if (options.tmp && !node.next()) {
-      button(node.parent, options.tmp);
+      button(node.parent, options.tmp, { rule, decl });
+
       delete options.tmp;
     }
   };
@@ -119,25 +120,26 @@ const postcssButton = (opts) => {
 
   return {
     postcssPlugin: 'postcss-button',
-    Once(root) {
-      root.walk((node) => {
-        if (node.type === 'atrule' && node.name.match(/^button/)) {
-          const name = node.params || 'default';
-          options[name] = options[name] || {};
+    AtRule(node) {
+      if (node.name.match(/^button/)) {
+        const name = node.params || 'default';
+        options[name] = options[name] || {};
 
-          Object.assign(options[name], atruleOptions(node, options));
+        Object.assign(options[name], atRuleOptions(node, options));
+        node.remove();
+      }
+    },
+    Declaration(node, { rule, decl }) {
+      if (node.parent.type === 'rule') {
+        if (node.prop.match(/^button/)) {
+          options.tmp = options.tmp || { ...options.default };
+          Object.assign(options.tmp, propOption(node, options[node.value]));
+          buttonMake(node, { rule, decl });
           node.remove();
-        } else if (node.parent.type === 'rule' && node.type === 'decl') {
-          if (node.prop.match(/^button/)) {
-            options.tmp = options.tmp || { ...options.default };
-            Object.assign(options.tmp, propOption(node, options[node.value]));
-            buttonMake(node);
-            node.remove();
-          } else {
-            buttonMake(node);
-          }
+        } else {
+          buttonMake(node, { rule, decl });
         }
-      });
+      }
     },
   };
 };

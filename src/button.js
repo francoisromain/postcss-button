@@ -1,5 +1,3 @@
-import postcss from 'postcss';
-
 const selectorApply = (selector, modifiers, applyToParent, isClass) => {
   const apply = (sel, modifier) => {
     const sels = sel.split(' ');
@@ -18,9 +16,9 @@ const selectorApply = (selector, modifiers, applyToParent, isClass) => {
     : apply(selector, modifiers);
 };
 
-const ruleDisabled = (ruleSelectors, options) => {
-  const rule = postcss.rule();
-  rule.selectors = ruleSelectors.map((selector) => {
+const ruleDisabled = (ruleSelectors, options, rule) => {
+  const node = rule();
+  node.selectors = ruleSelectors.map((selector) => {
     const selectorDefault = selectorApply(
       selector,
       [':disabled', ':disabled:active', ':disabled:hover'],
@@ -42,21 +40,21 @@ const ruleDisabled = (ruleSelectors, options) => {
     return [...selectorDefault, ...selectorClass];
   });
 
-  rule.append({ prop: 'opacity', value: '0.25' });
-  rule.append({ prop: 'cursor', value: 'default' });
-  rule.append({ prop: 'color', value: options.color });
-  rule.append({ prop: 'background-color', value: options.backgroundColor });
-  rule.append({
+  node.append({ prop: 'opacity', value: '0.25' });
+  node.append({ prop: 'cursor', value: 'default' });
+  node.append({ prop: 'color', value: options.color });
+  node.append({ prop: 'background-color', value: options.backgroundColor });
+  node.append({
     prop: 'box-shadow',
     value: `inset 0 0 0 ${options.borderWidth} ${options.borderColor}`,
   });
 
-  return rule;
+  return node;
 };
 
-const ruleHover = (ruleSelectors, options) => {
-  const rule = postcss.rule();
-  rule.selectors = ruleSelectors.map((selector) => {
+const ruleHover = (ruleSelectors, options, rule) => {
+  const node = rule();
+  node.selectors = ruleSelectors.map((selector) => {
     const selectorDefault = selectorApply(
       selector,
       ':hover',
@@ -75,29 +73,29 @@ const ruleHover = (ruleSelectors, options) => {
   });
 
   if (options.colorHover) {
-    rule.append({ prop: 'color', value: options.colorHover });
+    node.append({ prop: 'color', value: options.colorHover });
   }
 
   if (options.backgroundColorHover) {
-    rule.append({
+    node.append({
       prop: 'background-color',
       value: options.backgroundColorHover,
     });
   }
 
   if (options.borderColorHover && options.borderWidth !== '0') {
-    rule.append({
+    node.append({
       prop: 'box-shadow',
       value: `inset 0 0 0 ${options.borderWidth} ${options.borderColorHover}`,
     });
   }
 
-  return rule;
+  return node;
 };
 
-const ruleActive = (ruleSelectors, options) => {
-  const rule = postcss.rule();
-  rule.selectors = ruleSelectors.map((selector) => {
+const ruleActive = (ruleSelectors, options, rule) => {
+  const node = rule();
+  node.selectors = ruleSelectors.map((selector) => {
     const selectorDefault = selectorApply(
       selector,
       ':active',
@@ -116,43 +114,41 @@ const ruleActive = (ruleSelectors, options) => {
   });
 
   if (options.colorActive) {
-    rule.append({ prop: 'color', value: options.colorActive });
+    node.append({ prop: 'color', value: options.colorActive });
   }
 
   if (options.backgroundColorActive) {
-    rule.append({
+    node.append({
       prop: 'background-color',
       value: options.backgroundColorActive,
     });
   }
 
   if (options.borderColorActive && options.borderWidth !== '0') {
-    rule.append({
+    node.append({
       prop: 'box-shadow',
       value: `inset 0 0 0 ${options.borderWidth} ${options.borderColorActive}`,
     });
   }
 
-  return rule;
+  return node;
 };
 
-const declDefault = (options) => {
+const declDefault = (options, decl) => {
   const d1 = [
-    postcss.decl({ prop: 'cursor', value: 'pointer' }),
-    postcss.decl({ prop: 'text-decoration', value: 'none' }),
-    postcss.decl({ prop: 'border', value: 'none' }),
-    postcss.decl({ prop: 'display', value: 'inline-block' }),
+    decl({ prop: 'cursor', value: 'pointer' }),
+    decl({ prop: 'text-decoration', value: 'none' }),
+    decl({ prop: 'border', value: 'none' }),
+    decl({ prop: 'display', value: 'inline-block' }),
   ];
-  const d2 = options.color
-    ? postcss.decl({ prop: 'color', value: options.color })
-    : '';
+  const d2 = options.color ? decl({ prop: 'color', value: options.color }) : '';
   const d3 = options.backgroundColor
-    ? postcss.decl({ prop: 'background-color', value: options.backgroundColor })
+    ? decl({ prop: 'background-color', value: options.backgroundColor })
     : '';
   const d4 =
     options.borderWidth && options.borderWidth !== '0'
       ? [
-          postcss.decl({
+          decl({
             prop: 'box-shadow',
             value: `inset 0 0 0 ${options.borderWidth} ${options.borderColor}`,
           }),
@@ -162,15 +158,15 @@ const declDefault = (options) => {
   return [...d1, d2, d3, ...d4];
 };
 
-const button = (rule, options) => {
-  rule.after(ruleDisabled(rule.selectors, options));
+const button = (node, options, { rule, decl }) => {
+  node.after(ruleDisabled(node.selectors, options, rule));
 
   if (
     options.colorHover ||
     options.backgroundColorHover ||
     options.borderColorHover
   ) {
-    rule.after(ruleHover(rule.selectors, options));
+    node.after(ruleHover(node.selectors, options, rule));
   }
 
   if (
@@ -178,14 +174,14 @@ const button = (rule, options) => {
     options.backgroundColorActive ||
     options.borderColorActive
   ) {
-    rule.after(ruleActive(rule.selectors, options));
+    node.after(ruleActive(node.selectors, options, rule));
   }
 
-  rule.selectors = rule.selectors.map(
+  node.selectors = node.selectors.map(
     (selector) =>
       `${selector},${selectorApply(selector, ':visited', options.classParent)}`
   );
-  rule.prepend(declDefault(options));
+  node.prepend(declDefault(options, decl));
 };
 
 export default button;
