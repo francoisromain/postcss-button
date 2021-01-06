@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.0 (2021-01-05)
+
+- feat: BREAKING CHANGE update to postcss 8
+
 ## 0.3.9
 
 - feat: option to add classes and pseudo elements to the parent in the selector chain. Now work even without a parent in the selector chain. See updated test 08.

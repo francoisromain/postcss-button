@@ -1,6 +1,6 @@
 {
   "name": "postcss-button",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "A PostCSS plugin to create buttons.",
   "keywords": [
     "postcss",
@@ -40,7 +40,8 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^3.3.1",
-    "eslint-plugin-react": "^7.22.0"
+    "eslint-plugin-react": "^7.22.0",
+    "postcss": "^8.2.2"
   },
   "prettier": {
     "singleQuote": true
@@ -79,7 +80,7 @@
         "@babel/preset-env",
         {
           "targets": {
-            "node": "10"
+            "node": "current"
           }
         }
       ]
